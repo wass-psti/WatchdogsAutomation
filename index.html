@@ -22,6 +22,14 @@
 </head>
 
 <body class="bg-white text-slate-900">
+  <!-- Splash -->
+<div id="splash" style="
+  position:fixed; inset:0; z-index:9999;
+  display:flex; align-items:center; justify-content:center;
+  background:#FF6D05;">
+  <img src="./assets/images/WatchdogAutomationHeader.png" alt="Watchdogs Automation"
+       style="width:min(520px,85vw); height:auto;">
+</div>
   <!-- Top bar -->
   <div class="bg-slate-950 text-slate-200">
     <div class="mx-auto max-w-7xl px-4 py-2 text-sm flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
@@ -371,7 +379,33 @@
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+(function () {
+  const MIN_MS = 2200; // increase if you want longer (e.g., 2800)
+
+  const splash = document.getElementById("splash");
+  if (!splash) return;
+
+  const start = performance.now();
+
+  function hideSplash() {
+    const elapsed = performance.now() - start;
+    const remaining = Math.max(0, MIN_MS - elapsed);
+
+    setTimeout(() => {
+      splash.style.transition = "opacity 300ms ease";
+      splash.style.opacity = "0";
+      setTimeout(() => splash.remove(), 320);
+    }, remaining);
+  }
+
+  // Don’t wait for load (fast machines skip it). Start immediately:
+  hideSplash();
+
+  // If page comes from bfcache, force showing splash again:
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) window.location.reload();
+  });
+})();
+</script>
 </body>
 </html>
