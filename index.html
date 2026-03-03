@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watchdog Automation | PLC, HMI, SCADA & Industrial Control Systems</title>
+  <meta name="description" content="Watchdogs Automation delivers PLC programming, HMI/SCADA integration, instrumentation, commissioning, and industrial automation services in the Philippines." />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: a clean font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+  html {font-family: 'Manrope', sans-serif;}
+  h1{font-family: 'Manrope', sans-serif;}
+  body{font-family: 'Manrope', sans-serif;}
+</style>
+</head>
+
+<body class="bg-white text-slate-900">
+  <!-- Splash -->
+<div id="splash" style="
+  position:fixed; inset:0; z-index:9999;
+  display:flex; align-items:center; justify-content:center;
+  background:#FF6D05;">
+  <img src="./assets/images/WatchdogAutomationHeader.png" alt="Watchdogs Automation"
+       style="width:min(520px,85vw); height:auto;">
+</div>
+  <!-- Top bar -->
+  <div class="bg-slate-950 text-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-2 text-sm flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+        <span>Industrial Automation • PLC • HMI/SCADA • Commissioning</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-white" href="mailto:info@watchdogsautomation.com">info@watchdogsautomation.com</a>
+        <span class="text-slate-500">|</span>
+        <a class="hover:text-white" href="tel:+63XXXXXXXXXX">+63 917 888 3003</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-6 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="./assets/images/WALogoOutlined.png?v=1"
+         alt="Watchdog  Logo"
+         class="h-[100px] w-auto object-contain"/>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight">Watchdog Automation</div>
+          <div class="text-xs text-slate-600">Sales & Services • PLC Systems Technik Inc. • OPC </div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a class="text-slate-700 hover:text-slate-950" href="#card">Home</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#industries">About Us</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#projects">Services</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#process">Projects</a>
+        <a class="text-slate-700 hover:text-slate-950" href="#contact">Industries</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact"
+           class="hidden sm:inline-flex items-center justify-center rounded-xl bg-[#FF6D05] px-4 py-2 text-sm font-semibold text-white hover:bg-[#e65f00] transition-colors">
+          Contact Us
+      </a>
+        <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+          View Services
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+<!-- Hero -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-50"></div>
+    <div class="absolute top-40 -left-20 h-72 w-72 rounded-full bg-sky-200 blur-3xl opacity-50"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+    <!-- Left / Main -->
+    <div class="max-w-4xl">
+      <!-- Keep an H1 for SEO/accessibility, but visually use the image -->
+      <h1 class="sr-only">Watchdog Automation</h1>
+
+      <!-- Move image LEFT: remove mx-auto + text-center -->
+      <img
+        src="./assets/images/WatchdogAutomationHeader.png"
+        alt="Watchdogs Automation"
+        class="w-full max-w-3xl h-auto"
+      />
+
+      <p class="mt-6 text-lg text-slate-700 max-w-3xl italic">
+          You Imagine, We Integrate
+      </p>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+          Get a Free Consultation
+        </a>
+        <a href="#projects" class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+          See Example Projects
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
+          <div class="font-extrabold text-slate-950">PLC</div>
+          <div class="text-slate-600">Logic, interlocks, sequencing</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
+          <div class="font-extrabold text-slate-950">HMI</div>
+          <div class="text-slate-600">Operator screens, alarms</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
+          <div class="font-extrabold text-slate-950">SCADA</div>
+          <div class="text-slate-600">Monitoring, historian hooks</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
+          <div class="font-extrabold text-slate-950">I&amp;C</div>
+          <div class="text-slate-600">4–20mA, relays, field wiring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Services -->
+  <section id="services" 
+  class="relative border-t border-slate-200 bg-cover bg-center"
+  style="background-image: url('./assets/images/WatchdogsBG.png');">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-extrabold tracking-tight">Services</h2>
+        <p class="mt-3 text-slate-700">
+          End-to-end control systems engineering—built for uptime and maintainability.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-sm font-bold text-emerald-700">PLC Programming</div>
+          <div class="mt-2 font-extrabold text-xl">Logic, sequencing, interlocks</div>
+          <p class="mt-2 text-slate-700">Structured implementation with readable rungs, comments, and versioned deliverables.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>• Start/stop sequences, permissives</li>
+            <li>• Trips, alarms, reset philosophy</li>
+            <li>• I/O verification support</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-sm font-bold text-sky-700">HMI Development</div>
+          <div class="mt-2 font-extrabold text-xl">Operator screens & alarms</div>
+          <p class="mt-2 text-slate-700">Clean, consistent screens with alarm priority and clear operator actions.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>• Overview + detail screens</li>
+            <li>• Alarm pages & event logs</li>
+            <li>• Trend views (where supported)</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-sm font-bold text-slate-700">SCADA Integration</div>
+          <div class="mt-2 font-extrabold text-xl">Monitoring & reporting</div>
+          <p class="mt-2 text-slate-700">Tag mapping, OPC integration, and structured naming for long-term expandability.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>• Tag database + naming</li>
+            <li>• Alarm & event configuration</li>
+            <li>• Historian hooks (optional)</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-sm font-bold text-emerald-700">Instrumentation & I/O</div>
+          <div class="mt-2 font-extrabold text-xl">Loops, signals, panels</div>
+          <p class="mt-2 text-slate-700">4–20 mA, RTD, thermocouple, relays, and marshalling—planned for commissioning.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>• Loop checks & calibration support</li>
+            <li>• Panel I/O mapping assistance</li>
+            <li>• Documentation review</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-sm font-bold text-sky-700">Troubleshooting</div>
+          <div class="mt-2 font-extrabold text-xl">Fault isolation & recovery</div>
+          <p class="mt-2 text-slate-700">Fast root-cause analysis without “random parameter changes.” Evidence-driven fixes.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>• Control logic review</li>
+            <li>• Signal validation & diagnostics</li>
+            <li>• Corrective action plans</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-sm font-bold text-slate-700">Commissioning Support</div>
+          <div class="mt-2 font-extrabold text-xl">FAT / SAT / handover</div>
+          <p class="mt-2 text-slate-700">Test scripts, punchlists, and turnover packages so operations isn’t guessing.</p>
+          <ul class="mt-4 text-sm text-slate-600 space-y-2">
+            <li>• FAT & SAT documentation</li>
+            <li>• Site validation assistance</li>
+            <li>• Training handover (optional)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section id="industries" class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl font-extrabold tracking-tight">Industries</h2>
+      <p class="mt-3 text-slate-700 max-w-2xl">
+        We adapt control strategies to the realities of your facility: access windows, safety rules, and operations needs.
+      </p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="font-extrabold">Power & Utilities</div>
+          <p class="mt-2 text-sm text-slate-600">Turbine auxiliaries, balance-of-plant, instrumentation support.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="font-extrabold">Manufacturing</div>
+          <p class="mt-2 text-sm text-slate-600">Line controls, batching, conveyors, machine interlocks.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="font-extrabold">Water & Wastewater</div>
+          <p class="mt-2 text-sm text-slate-600">Pumps, level controls, dosing, alarming and reporting.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="font-extrabold">Facilities</div>
+          <p class="mt-2 text-sm text-slate-600">BMS interfaces, monitoring, energy dashboards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="border-t border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl font-extrabold tracking-tight">Example Projects</h2>
+      <p class="mt-3 text-slate-700 max-w-2xl">
+        Replace these placeholders with real case studies when you’re ready (even without revealing confidential details).
+      </p>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        <article class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-xs font-bold text-slate-600">Case Study</div>
+          <h3 class="mt-2 text-xl font-extrabold">Pump Station Control Upgrade</h3>
+          <p class="mt-2 text-slate-700">Refactored sequencing and alarms, reduced nuisance trips, improved operator clarity.</p>
+          <div class="mt-4 text-sm text-slate-600">
+            <span class="font-semibold">Scope:</span> PLC logic + HMI screens + commissioning support
+          </div>
+        </article>
+
+        <article class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-xs font-bold text-slate-600">Case Study</div>
+          <h3 class="mt-2 text-xl font-extrabold">Boiler Auxiliaries Interlock Review</h3>
+          <p class="mt-2 text-slate-700">Validated permissives/trips and created a cause & effect matrix for operations.</p>
+          <div class="mt-4 text-sm text-slate-600">
+            <span class="font-semibold">Scope:</span> Documentation + logic audit + FAT checklist
+          </div>
+        </article>
+
+        <article class="rounded-3xl border border-slate-200 bg-white p-6">
+          <div class="text-xs font-bold text-slate-600">Case Study</div>
+          <h3 class="mt-2 text-xl font-extrabold">SCADA Tag Standardization</h3>
+          <p class="mt-2 text-slate-700">Implemented structured naming, reduced duplicate tags, improved long-term maintainability.</p>
+          <div class="mt-4 text-sm text-slate-600">
+            <span class="font-semibold">Scope:</span> Tag database + alarms/events + handover docs
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl font-extrabold tracking-tight">How We Work</h2>
+      <p class="mt-3 text-slate-700 max-w-2xl">
+        Predictable delivery beats “debugging in production.” We favor clear scope, testable outputs, and clean handover.
+      </p>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-4">
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="text-sm font-bold text-emerald-700">01 • Discovery</div>
+          <p class="mt-2 text-slate-700">Review I/O, drawings, network, constraints, and acceptance criteria.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="text-sm font-bold text-sky-700">02 • Design</div>
+          <p class="mt-2 text-slate-700">Cause & effect, alarm philosophy, screen list, test plan.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="text-sm font-bold text-slate-700">03 • Build</div>
+          <p class="mt-2 text-slate-700">Implementation with version control and internal reviews.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 p-6">
+          <div class="text-sm font-bold text-slate-700">04 • Validate</div>
+          <p class="mt-2 text-slate-700">FAT/SAT support, punchlist closure, turnover package.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section id="contact" class="border-t border-slate-200 bg-slate-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 py-14 grid gap-10 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
+        <p class="mt-3 text-slate-300 max-w-2xl">
+          Send a brief description, your location, and any relevant drawings/I/O list. We’ll reply with clarifying questions and next steps.
+        </p>
+
+        <div class="mt-6 grid gap-3 text-sm text-slate-300">
+          <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogsautomation.com">info@watchdogsautomation.com</a></div>
+          <div><span class="font-semibold text-white">Phone:</span> <a class="underline hover:text-white" href="tel:+63XXXXXXXXXX">+63 XXX XXX XXXX</a></div>
+          <div><span class="font-semibold text-white">Location:</span> Lapu-Lapu / Cebu (edit as needed)</div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white text-slate-900 p-6">
+          <div class="font-extrabold text-xl">Quick message</div>
+          <p class="mt-1 text-sm text-slate-600">
+            No backend here yet—use email for now. We can add a form service later.
+          </p>
+
+          <form class="mt-5 grid gap-3" onsubmit="event.preventDefault(); alert('This demo form does not send yet. Use the email link for now.');">
+            <label class="grid gap-1">
+              <span class="text-sm font-semibold">Name</span>
+              <input class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm font-semibold">Email</span>
+              <input type="email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm font-semibold">Message</span>
+              <textarea rows="4" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..."></textarea>
+            </label>
+
+            <button class="mt-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800" type="submit">
+              Send (demo)
+            </button>
+
+            <div class="text-xs text-slate-600">
+              Want a real form (no backend)? We can wire this to Formspree later.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div class="text-sm text-slate-600">
+        © <span id="year"></span> Watchdogs Automation. All rights reserved.
+      </div>
+      <div class="text-sm text-slate-600 flex gap-6">
+        <a class="hover:text-slate-900" href="#services">Services</a>
+        <a class="hover:text-slate-900" href="#projects">Projects</a>
+        <a class="hover:text-slate-900" href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+(function () {
+  const MIN_MS = 2200; // increase if you want longer (e.g., 2800)
+
+  const splash = document.getElementById("splash");
+  if (!splash) return;
+
+  const start = performance.now();
+
+  function hideSplash() {
+    const elapsed = performance.now() - start;
+    const remaining = Math.max(0, MIN_MS - elapsed);
+
+    setTimeout(() => {
+      splash.style.transition = "opacity 300ms ease";
+      splash.style.opacity = "0";
+      setTimeout(() => splash.remove(), 320);
+    }, remaining);
+  }
+
+  // Don’t wait for load (fast machines skip it). Start immediately:
+  hideSplash();
+
+  // If page comes from bfcache, force showing splash again:
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) window.location.reload();
+  });
+})();
+</script>
+</body>
+</html>
