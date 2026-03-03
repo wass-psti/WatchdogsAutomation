@@ -70,25 +70,27 @@
   </header>
 
   <!-- Hero -->
-<section class="relative overflow-hidden bg-cover bg-center">
-  <!-- style="background-image: url('./assets/images/WatchdogsBG.png');"> -->
+<!-- Hero -->
+<section class="relative overflow-hidden">
   <div class="absolute inset-0 -z-10">
     <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-50"></div>
     <div class="absolute top-40 -left-20 h-72 w-72 rounded-full bg-sky-200 blur-3xl opacity-50"></div>
   </div>
 
-  <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20 grid gap-10 lg:grid-cols-12 lg:items-center">
-    <!-- Left -->
-  <div class="lg:col-span-12 text-center">
-    <h1 class="sr-only">Watchdog Automation</h1>
-    <img 
-      src="./assets/images/WatchdogAutomationHeader.png"
-      alt="Watchdog Automation"
-      class="mx-auto w-full max-w-4xl h-auto"
-    />
-  </div>
+  <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+    <!-- Left / Main -->
+    <div class="max-w-4xl">
+      <!-- Keep an H1 for SEO/accessibility, but visually use the image -->
+      <h1 class="sr-only">Watchdogs Automation</h1>
 
-      <p class="mt-4 text-lg text-slate-700 max-w-2xl">
+      <!-- Move image LEFT: remove mx-auto + text-center -->
+      <img
+        src="./assets/images/WatchdogAutomationHeader.png"
+        alt="Watchdogs Automation"
+        class="w-full max-w-3xl h-auto"
+      />
+
+      <p class="mt-6 text-lg text-slate-700 max-w-2xl">
         Description Description Description Description
       </p>
 
@@ -101,25 +103,24 @@
         </a>
       </div>
 
-      <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-        <div class="rounded-2xl border border-slate-200 p-4">
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
           <div class="font-extrabold text-slate-950">PLC</div>
           <div class="text-slate-600">Logic, interlocks, sequencing</div>
         </div>
-        <div class="rounded-2xl border border-slate-200 p-4">
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
           <div class="font-extrabold text-slate-950">HMI</div>
           <div class="text-slate-600">Operator screens, alarms</div>
         </div>
-        <div class="rounded-2xl border border-slate-200 p-4">
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
           <div class="font-extrabold text-slate-950">SCADA</div>
           <div class="text-slate-600">Monitoring, historian hooks</div>
         </div>
-        <div class="rounded-2xl border border-slate-200 p-4">
+        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
           <div class="font-extrabold text-slate-950">I&amp;C</div>
           <div class="text-slate-600">4–20mA, relays, field wiring</div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </section>
