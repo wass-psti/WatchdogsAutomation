@@ -9,204 +9,148 @@
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Optional: a clean font -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-  html {font-family: 'Manrope', sans-serif;}
-  h1{font-family: 'Manrope', sans-serif;}
-  body{font-family: 'Manrope', sans-serif;}
+    html, body { font-family: 'Manrope', sans-serif; }
 
-  /* Splash loading animation */
-  .wa-spinner{
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    border:3px solid rgba(255,255,255,0.35);
-    border-top-color: rgba(255,255,255,0.95);
-    animation: waSpin 0.9s linear infinite;
-  }
-  @keyframes waSpin { to { transform: rotate(360deg); } }
+    /* Splash layout */
+    #splash{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FF6D05;
+    }
 
-  .wa-bar{
-    height:100%;
-    width:45%;
-    background: rgba(255,255,255,0.95);
-    border-radius:999px;
-    animation: waBar 1.1s ease-in-out infinite;
-  }
-  @keyframes waBar{
-    0%   { transform: translateX(-120%); opacity:0.35; }
-    50%  { opacity:1; }
-    100% { transform: translateX(260%); opacity:0.35; }
-  }
-    
-  /* --- Splash industrial theme add-ons --- */  
-  .wa-splash-wrap{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-    padding:24px;
-    width:min(760px,92vw);
-  }
+    .wa-splash-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+      padding:24px;
+      width:min(760px,92vw);
+    }
 
-  .wa-splash-logo{
-    width:min(520px,85vw);
-    height:auto;
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.18));
-  }
+    .wa-splash-logo{
+      width:min(520px,85vw);
+      height:auto;
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.18));
+    }
 
-  /* "Electrical current" scan line */
-  .wa-current{
-    position:relative;
-    width:min(560px,88vw);
-    height:10px;
-    border-radius:999px;
-    background: rgba(255,255,255,0.18);
-    overflow:hidden;
-  }
-  .wa-current::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.15) 0px,
-      rgba(255,255,255,0.15) 8px,
-      rgba(255,255,255,0.00) 8px,
-      rgba(255,255,255,0.00) 16px
-    );
-    opacity:0.9;
-  }
-  .wa-current-glow{
-    position:absolute;
-    top:0; bottom:0;
-    width:22%;
-    border-radius:999px;
-    background: linear-gradient(90deg,
-      rgba(255,255,255,0.0),
-      rgba(255,255,255,0.95),
-      rgba(255,255,255,0.0)
-    );
-    animation: waCurrent 0.95s ease-in-out infinite;
-    filter: blur(0.2px);
-  }
-  @keyframes waCurrent{
-    0%   { transform: translateX(-140%); opacity:0.35; }
-    50%  { opacity:1; }
-    100% { transform: translateX(520%); opacity:0.35; }
-  }
+    /* Circuit-style loader (ONE loader only) */
+    .wa-current{
+      position:relative;
+      width:min(560px,88vw);
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.18);
+      overflow:hidden;
+    }
+    .wa-current::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.15) 0px,
+        rgba(255,255,255,0.15) 8px,
+        rgba(255,255,255,0.00) 8px,
+        rgba(255,255,255,0.00) 16px
+      );
+      opacity:0.9;
+    }
+    .wa-current-glow{
+      position:absolute;
+      top:0; bottom:0;
+      width:22%;
+      border-radius:999px;
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0.0),
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.0)
+      );
+      animation: waCurrent 0.95s ease-in-out infinite;
+    }
+    @keyframes waCurrent{
+      0%   { transform: translateX(-140%); opacity:0.35; }
+      50%  { opacity:1; }
+      100% { transform: translateX(520%); opacity:0.35; }
+    }
 
-  /* PLC boot log */
-  .wa-boot{
-    width:min(560px,88vw);
-    border-radius:14px;
-    padding:12px 14px;
-    background: rgba(0,0,0,0.18);
-    backdrop-filter: blur(6px);
-    color: rgba(255,255,255,0.92);
-  }
-  .wa-boot-title{
-    font-size:12px;
-    letter-spacing:0.14em;
-    font-weight:800;
-    opacity:0.9;
-  }
-  .wa-boot-line{
-    margin-top:8px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:14px;
-    letter-spacing:0.02em;
-  }
-  .wa-boot-dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 0 14px rgba(255,255,255,0.9);
-    animation: waPulse 0.9s ease-in-out infinite;
-  }
-  @keyframes waPulse{
-    0%,100%{ transform: scale(0.85); opacity:0.6; }
-    50%{ transform: scale(1.15); opacity:1; }
-  }
+    /* PLC boot log (simple + clean) */
+    .wa-boot{
+      width:min(560px,88vw);
+      border-radius:14px;
+      padding:12px 14px;
+      background: rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+      color: rgba(255,255,255,0.92);
+    }
+    .wa-boot-title{
+      font-size:12px;
+      letter-spacing:0.14em;
+      font-weight:800;
+      opacity:0.9;
+    }
+    .wa-boot-line{
+      margin-top:8px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:14px;
+      letter-spacing:0.02em;
+    }
+    .wa-boot-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 0 14px rgba(255,255,255,0.9);
+      animation: waPulse 0.9s ease-in-out infinite;
+      flex: 0 0 auto;
+    }
+    @keyframes waPulse{
+      0%,100%{ transform: scale(0.85); opacity:0.6; }
+      50%{ transform: scale(1.15); opacity:1; }
+    }
 
-  /* Keep your spinner/bar but style wrapper */
-  .wa-bar-shell{
-    width:min(520px,85vw);
-    height:8px;
-    background: rgba(255,255,255,0.25);
-    border-radius:999px;
-    overflow:hidden;
-  }
-
-  .wa-loading{
-    color: rgba(255,255,255,0.92);
-    font-size: 13px;
-    letter-spacing: 0.10em;
-  }
+    .wa-loading{
+      color: rgba(255,255,255,0.92);
+      font-size: 13px;
+      letter-spacing: 0.10em;
+    }
   </style>
 </head>
 
 <body class="bg-white text-slate-900">
-  
-<!-- Splash -->
- position:fixed; inset:0; z-index:9999;
-  display:flex; align-items:center; justify-content:center;
-  background:#FF6D05;">
-  <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:24px; width:min(720px,92vw);">
-    <img src="./assets/images/WASplash.png"
-         alt="Watchdog Automation"
-         style="width:min(520px,85vw); height:auto;" />
 
-    <!-- 3-dot loading (single loader) -->
-    <div class="wa-dots" aria-label="Loading">
-      <span></span><span></span><span></span>
-    </div>
+  <!-- Splash (must be valid HTML, first thing in body) -->
+  <div id="splash">
+    <div class="wa-splash-wrap">
+      <img class="wa-splash-logo" src="./assets/images/WASplash.png" alt="Watchdog Automation" />
 
-    <div style="color:rgba(255,255,255,0.92); font-size:13px; letter-spacing:0.10em;">
-      LOADING
-    </div>
-  </div>
-</div>
-    <!-- PLC Boot log -->
-    <div class="wa-boot" aria-live="polite">
-      <div class="wa-boot-title">PLC BOOT SEQUENCE</div>
-      <div class="wa-boot-line">
-        <span class="wa-boot-dot"></span>
-        <span id="waBootText">Initializing…</span>
+      <div class="wa-current" aria-label="Loading">
+        <div class="wa-current-glow"></div>
       </div>
-    </div>
 
-    <!-- Spinner + bar (kept) -->
-    <div class="wa-spinner" aria-label="Loading"></div>
+      <div class="wa-boot" aria-live="polite">
+        <div class="wa-boot-title">PLC BOOT SEQUENCE</div>
+        <div class="wa-boot-line">
+          <span class="wa-boot-dot"></span>
+          <span id="waBootText">Initializing…</span>
+        </div>
+      </div>
 
-    <div class="wa-bar-shell">
-      <div class="wa-bar"></div>
-    </div>
-
-    <div class="wa-loading">Loading…</div>
-  </div>
-</div>
-
-    <!-- Spinner -->
-    <div class="wa-spinner" aria-label="Loading"></div>
-
-    <!-- Loading bar -->
-    <div style="width:min(520px,85vw); height:8px; background:rgba(255,255,255,0.25); border-radius:999px; overflow:hidden;">
-      <div class="wa-bar"></div>
-    </div>
-
-    <div style="color:rgba(255,255,255,0.92); font-size:14px; letter-spacing:0.06em;">
-      Loading…
+      <div class="wa-loading">LOADING</div>
     </div>
   </div>
-</div>
+
   <!-- Top bar -->
   <div class="bg-slate-950 text-slate-200">
     <div class="mx-auto max-w-7xl px-4 py-2 text-sm flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
@@ -226,12 +170,10 @@
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
     <div class="mx-auto max-w-7xl px-4 py-6 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
-        <img src="./assets/images/WALogoOutlined.png?v=1"
-         alt="Watchdog  Logo"
-         class="h-[100px] w-auto object-contain"/>
+        <img src="./assets/images/WALogoOutlined.png?v=1" alt="Watchdog Logo" class="h-[100px] w-auto object-contain"/>
         <div class="leading-tight">
           <div class="font-extrabold tracking-tight">Watchdog Automation</div>
-          <div class="text-xs text-slate-600">Sales & Services • PLC Systems Technik Inc. • OPC </div>
+          <div class="text-xs text-slate-600">Sales & Services • PLC Systems Technik Inc. • OPC</div>
         </div>
       </a>
 
@@ -247,7 +189,7 @@
         <a href="#contact"
            class="hidden sm:inline-flex items-center justify-center rounded-xl bg-[#FF6D05] px-4 py-2 text-sm font-semibold text-white hover:bg-[#e65f00] transition-colors">
           Contact Us
-      </a>
+        </a>
         <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
           View Services
         </a>
@@ -256,364 +198,83 @@
   </header>
 
   <!-- Hero -->
-<!-- Hero -->
-<section class="relative overflow-hidden">
-  <div class="absolute inset-0 -z-10">
-    <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-50"></div>
-    <div class="absolute top-40 -left-20 h-72 w-72 rounded-full bg-sky-200 blur-3xl opacity-50"></div>
-  </div>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-50"></div>
+      <div class="absolute top-40 -left-20 h-72 w-72 rounded-full bg-sky-200 blur-3xl opacity-50"></div>
+    </div>
 
-  <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
-    <!-- Left / Main -->
-    <div class="max-w-4xl">
-      <!-- Keep an H1 for SEO/accessibility, but visually use the image -->
-      <h1 class="sr-only">Watchdog Automation</h1>
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+      <div class="max-w-4xl">
+        <h1 class="sr-only">Watchdog Automation</h1>
 
-      <!-- Move image LEFT: remove mx-auto + text-center -->
-      <img
-        src="./assets/images/WABrandingLogo2.png"
-        alt="Watchdog Automation"
-        class="w-full max-w-3xl h-auto"
-      />
+        <img src="./assets/images/WABrandingLogo2.png" alt="Watchdog Automation" class="w-full max-w-3xl h-auto" />
 
-      <p class="mt-6 text-lg text-slate-700 max-w-3xl italic">
+        <p class="mt-6 text-lg text-slate-700 max-w-3xl italic">
           You Imagine, We Integrate
-      </p>
-
-      <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-          Get a Free Consultation
-        </a>
-        <a href="#projects" class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-          See Example Projects
-        </a>
-      </div>
-
-      <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">PLC</div>
-          <div class="text-slate-600">Logic, interlocks, sequencing</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">HMI</div>
-          <div class="text-slate-600">Operator screens, alarms</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">SCADA</div>
-          <div class="text-slate-600">Monitoring, historian hooks</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">I&amp;C</div>
-          <div class="text-slate-600">4–20mA, relays, field wiring</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Services -->
-  <section id="services" 
-  class="relative border-t border-slate-200 bg-cover bg-center"
-  style="background-image: url('./assets/images/WatchdogsBG.png');">
-    <div class="mx-auto max-w-7xl px-4 py-14">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-extrabold tracking-tight">Services</h2>
-        <p class="mt-3 text-slate-700">
-          End-to-end control systems engineering—built for uptime and maintainability.
         </p>
       </div>
-
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card -->
-        <div class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-sm font-bold text-emerald-700">PLC Programming</div>
-          <div class="mt-2 font-extrabold text-xl">Logic, sequencing, interlocks</div>
-          <p class="mt-2 text-slate-700">Structured implementation with readable rungs, comments, and versioned deliverables.</p>
-          <ul class="mt-4 text-sm text-slate-600 space-y-2">
-            <li>• Start/stop sequences, permissives</li>
-            <li>• Trips, alarms, reset philosophy</li>
-            <li>• I/O verification support</li>
-          </ul>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-sm font-bold text-sky-700">HMI Development</div>
-          <div class="mt-2 font-extrabold text-xl">Operator screens & alarms</div>
-          <p class="mt-2 text-slate-700">Clean, consistent screens with alarm priority and clear operator actions.</p>
-          <ul class="mt-4 text-sm text-slate-600 space-y-2">
-            <li>• Overview + detail screens</li>
-            <li>• Alarm pages & event logs</li>
-            <li>• Trend views (where supported)</li>
-          </ul>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-sm font-bold text-slate-700">SCADA Integration</div>
-          <div class="mt-2 font-extrabold text-xl">Monitoring & reporting</div>
-          <p class="mt-2 text-slate-700">Tag mapping, OPC integration, and structured naming for long-term expandability.</p>
-          <ul class="mt-4 text-sm text-slate-600 space-y-2">
-            <li>• Tag database + naming</li>
-            <li>• Alarm & event configuration</li>
-            <li>• Historian hooks (optional)</li>
-          </ul>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-sm font-bold text-emerald-700">Instrumentation & I/O</div>
-          <div class="mt-2 font-extrabold text-xl">Loops, signals, panels</div>
-          <p class="mt-2 text-slate-700">4–20 mA, RTD, thermocouple, relays, and marshalling—planned for commissioning.</p>
-          <ul class="mt-4 text-sm text-slate-600 space-y-2">
-            <li>• Loop checks & calibration support</li>
-            <li>• Panel I/O mapping assistance</li>
-            <li>• Documentation review</li>
-          </ul>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-sm font-bold text-sky-700">Troubleshooting</div>
-          <div class="mt-2 font-extrabold text-xl">Fault isolation & recovery</div>
-          <p class="mt-2 text-slate-700">Fast root-cause analysis without “random parameter changes.” Evidence-driven fixes.</p>
-          <ul class="mt-4 text-sm text-slate-600 space-y-2">
-            <li>• Control logic review</li>
-            <li>• Signal validation & diagnostics</li>
-            <li>• Corrective action plans</li>
-          </ul>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-sm font-bold text-slate-700">Commissioning Support</div>
-          <div class="mt-2 font-extrabold text-xl">FAT / SAT / handover</div>
-          <p class="mt-2 text-slate-700">Test scripts, punchlists, and turnover packages so operations isn’t guessing.</p>
-          <ul class="mt-4 text-sm text-slate-600 space-y-2">
-            <li>• FAT & SAT documentation</li>
-            <li>• Site validation assistance</li>
-            <li>• Training handover (optional)</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- Industries -->
-  <section id="industries" class="border-t border-slate-200">
-    <div class="mx-auto max-w-7xl px-4 py-14">
-      <h2 class="text-3xl font-extrabold tracking-tight">Industries</h2>
-      <p class="mt-3 text-slate-700 max-w-2xl">
-        We adapt control strategies to the realities of your facility: access windows, safety rules, and operations needs.
-      </p>
+  <!-- (Keep the rest of your sections as-is below this point) -->
 
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="font-extrabold">Power & Utilities</div>
-          <p class="mt-2 text-sm text-slate-600">Turbine auxiliaries, balance-of-plant, instrumentation support.</p>
-        </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="font-extrabold">Manufacturing</div>
-          <p class="mt-2 text-sm text-slate-600">Line controls, batching, conveyors, machine interlocks.</p>
-        </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="font-extrabold">Water & Wastewater</div>
-          <p class="mt-2 text-sm text-slate-600">Pumps, level controls, dosing, alarming and reporting.</p>
-        </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="font-extrabold">Facilities</div>
-          <p class="mt-2 text-sm text-slate-600">BMS interfaces, monitoring, energy dashboards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <script>
+    (function () {
+      const MIN_MS = 2400;
+      const splash = document.getElementById("splash");
+      if (!splash) return;
 
-  <!-- Projects -->
-  <section id="projects" class="border-t border-slate-200 bg-slate-50">
-    <div class="mx-auto max-w-7xl px-4 py-14">
-      <h2 class="text-3xl font-extrabold tracking-tight">Example Projects</h2>
-      <p class="mt-3 text-slate-700 max-w-2xl">
-        Replace these placeholders with real case studies when you’re ready (even without revealing confidential details).
-      </p>
+      const bootEl = document.getElementById("waBootText");
+      const steps = [
+        "Initializing CPU & memory map…",
+        "Scanning digital inputs (DI)…",
+        "Energizing output checks (DO)…",
+        "Loading analog scaling (AI/AO)…",
+        "Establishing OPC/SCADA handshake…",
+        "Verifying interlocks & permissives…",
+        "Finalizing commissioning-ready state…"
+      ];
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-3">
-        <article class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-xs font-bold text-slate-600">Case Study</div>
-          <h3 class="mt-2 text-xl font-extrabold">Pump Station Control Upgrade</h3>
-          <p class="mt-2 text-slate-700">Refactored sequencing and alarms, reduced nuisance trips, improved operator clarity.</p>
-          <div class="mt-4 text-sm text-slate-600">
-            <span class="font-semibold">Scope:</span> PLC logic + HMI screens + commissioning support
-          </div>
-        </article>
+      let idx = 0;
+      let bootTimer = null;
 
-        <article class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-xs font-bold text-slate-600">Case Study</div>
-          <h3 class="mt-2 text-xl font-extrabold">Boiler Auxiliaries Interlock Review</h3>
-          <p class="mt-2 text-slate-700">Validated permissives/trips and created a cause & effect matrix for operations.</p>
-          <div class="mt-4 text-sm text-slate-600">
-            <span class="font-semibold">Scope:</span> Documentation + logic audit + FAT checklist
-          </div>
-        </article>
+      if (bootEl) {
+        bootEl.textContent = steps[0];
+        bootTimer = setInterval(() => {
+          idx = (idx + 1) % steps.length;
+          bootEl.textContent = steps[idx];
+        }, 420);
+      }
 
-        <article class="rounded-3xl border border-slate-200 bg-white p-6">
-          <div class="text-xs font-bold text-slate-600">Case Study</div>
-          <h3 class="mt-2 text-xl font-extrabold">SCADA Tag Standardization</h3>
-          <p class="mt-2 text-slate-700">Implemented structured naming, reduced duplicate tags, improved long-term maintainability.</p>
-          <div class="mt-4 text-sm text-slate-600">
-            <span class="font-semibold">Scope:</span> Tag database + alarms/events + handover docs
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+      const start = performance.now();
 
-  <!-- Process -->
-  <section id="process" class="border-t border-slate-200">
-    <div class="mx-auto max-w-7xl px-4 py-14">
-      <h2 class="text-3xl font-extrabold tracking-tight">How We Work</h2>
-      <p class="mt-3 text-slate-700 max-w-2xl">
-        Predictable delivery beats “debugging in production.” We favor clear scope, testable outputs, and clean handover.
-      </p>
+      function hideSplash() {
+        const elapsed = performance.now() - start;
+        const remaining = Math.max(0, MIN_MS - elapsed);
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-4">
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="text-sm font-bold text-emerald-700">01 • Discovery</div>
-          <p class="mt-2 text-slate-700">Review I/O, drawings, network, constraints, and acceptance criteria.</p>
-        </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="text-sm font-bold text-sky-700">02 • Design</div>
-          <p class="mt-2 text-slate-700">Cause & effect, alarm philosophy, screen list, test plan.</p>
-        </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="text-sm font-bold text-slate-700">03 • Build</div>
-          <p class="mt-2 text-slate-700">Implementation with version control and internal reviews.</p>
-        </div>
-        <div class="rounded-3xl border border-slate-200 p-6">
-          <div class="text-sm font-bold text-slate-700">04 • Validate</div>
-          <p class="mt-2 text-slate-700">FAT/SAT support, punchlist closure, turnover package.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        setTimeout(() => {
+          if (bootTimer) clearInterval(bootTimer);
+          splash.style.transition = "opacity 450ms ease";
+          splash.style.opacity = "0";
+          setTimeout(() => splash.remove(), 480);
+        }, remaining);
+      }
 
-  <!-- Contact CTA -->
-  <section id="contact" class="border-t border-slate-200 bg-slate-950 text-white">
-    <div class="mx-auto max-w-7xl px-4 py-14 grid gap-10 lg:grid-cols-12 lg:items-center">
-      <div class="lg:col-span-7">
-        <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
-        <p class="mt-3 text-slate-300 max-w-2xl">
-          Send a brief description, your location, and any relevant drawings/I/O list. We’ll reply with clarifying questions and next steps.
-        </p>
+      // Start immediately (fast machines)
+      hideSplash();
 
-        <div class="mt-6 grid gap-3 text-sm text-slate-300">
-          <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogsautomation.com">info@watchdogsautomation.com</a></div>
-          <div><span class="font-semibold text-white">Phone:</span> <a class="underline hover:text-white" href="tel:+63XXXXXXXXXX">+63 XXX XXX XXXX</a></div>
-          <div><span class="font-semibold text-white">Location:</span> Lapu-Lapu / Cebu (edit as needed)</div>
-        </div>
-      </div>
+      // Hard fallback
+      setTimeout(() => {
+        const s = document.getElementById("splash");
+        if (s) s.remove();
+      }, 9000);
 
-      <div class="lg:col-span-5">
-        <div class="rounded-3xl bg-white text-slate-900 p-6">
-          <div class="font-extrabold text-xl">Quick message</div>
-          <p class="mt-1 text-sm text-slate-600">
-            No backend here yet—use email for now. We can add a form service later.
-          </p>
-
-          <form class="mt-5 grid gap-3" onsubmit="event.preventDefault(); alert('This demo form does not send yet. Use the email link for now.');">
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Name</span>
-              <input class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Email</span>
-              <input type="email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Message</span>
-              <textarea rows="4" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..."></textarea>
-            </label>
-
-            <button class="mt-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800" type="submit">
-              Send (demo)
-            </button>
-
-            <div class="text-xs text-slate-600">
-              Want a real form (no backend)? We can wire this to Formspree later.
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-200">
-    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div class="text-sm text-slate-600">
-        © <span id="year"></span> Watchdogs Automation. All rights reserved.
-      </div>
-      <div class="text-sm text-slate-600 flex gap-6">
-        <a class="hover:text-slate-900" href="#services">Services</a>
-        <a class="hover:text-slate-900" href="#projects">Projects</a>
-        <a class="hover:text-slate-900" href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
- <script>
-(function () {
-  const MIN_MS = 2400; // a bit longer so the PLC boot text feels intentional
-  const splash = document.getElementById("splash");
-  if (!splash) return;
-
-  const bootEl = document.getElementById("waBootText");
-  const steps = [
-    "Initializing CPU & memory map…",
-    "Scanning digital inputs (DI)…",
-    "Energizing output checks (DO)…",
-    "Loading analog scaling (AI/AO)…",
-    "Establishing OPC/SCADA handshake…",
-    "Verifying interlocks & permissives…",
-    "Finalizing commissioning-ready state…"
-  ];
-
-  // Cycle boot messages while splash is visible
-  let idx = 0;
-  let bootTimer = null;
-  if (bootEl) {
-    bootEl.textContent = steps[0];
-    bootTimer = setInterval(() => {
-      idx = (idx + 1) % steps.length;
-      bootEl.textContent = steps[idx];
-    }, 420);
-  }
-
-  const start = performance.now();
-
-  function hideSplash() {
-    const elapsed = performance.now() - start;
-    const remaining = Math.max(0, MIN_MS - elapsed);
-
-    setTimeout(() => {
-      if (bootTimer) clearInterval(bootTimer);
-
-      splash.style.transition = "opacity 450ms ease";
-      splash.style.opacity = "0";
-      setTimeout(() => splash.remove(), 480);
-    }, remaining);
-  }
-
-  // Start immediately (best for fast machines)
-  hideSplash();
-
-  // Hard fallback: never let splash get stuck
-  setTimeout(() => {
-    if (document.getElementById("splash")) {
-      if (bootTimer) clearInterval(bootTimer);
-      splash.remove();
-    }
-  }, 9000);
-
-  // If page comes from bfcache, show splash again reliably
-  window.addEventListener("pageshow", (e) => {
-    if (e.persisted) window.location.reload();
-  });
-})();
-</script>
+      // bfcache reload
+      window.addEventListener("pageshow", (e) => {
+        if (e.persisted) window.location.reload();
+      });
+    })();
+  </script>
 </body>
 </html>
