@@ -156,21 +156,24 @@
 <body class="bg-white text-slate-900">
   
 <!-- Splash -->
-<div id="splash" style="
-  position:fixed; inset:0; z-index:9999;
+ position:fixed; inset:0; z-index:9999;
   display:flex; align-items:center; justify-content:center;
   background:#FF6D05;">
-  
-  <div class="wa-splash-wrap">
+  <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:24px; width:min(720px,92vw);">
     <img src="./assets/images/WASplash.png"
          alt="Watchdog Automation"
-         class="wa-splash-logo" />
+         style="width:min(520px,85vw); height:auto;" />
 
-    <!-- "Electrical current" scanning line -->
-    <div class="wa-current">
-      <div class="wa-current-glow"></div>
+    <!-- 3-dot loading (single loader) -->
+    <div class="wa-dots" aria-label="Loading">
+      <span></span><span></span><span></span>
     </div>
 
+    <div style="color:rgba(255,255,255,0.92); font-size:13px; letter-spacing:0.10em;">
+      LOADING
+    </div>
+  </div>
+</div>
     <!-- PLC Boot log -->
     <div class="wa-boot" aria-live="polite">
       <div class="wa-boot-title">PLC BOOT SEQUENCE</div>
