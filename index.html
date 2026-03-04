@@ -827,7 +827,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const bootTimer = setInterval(() => {
     idx = Math.min(idx + 1, steps.length - 1);
     if (bootEl) bootEl.textContent = steps[idx];
-  }, 340);
+  }, 500);
 
   if (bootEl) bootEl.textContent = steps[0];
 
@@ -836,7 +836,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     splash.style.transition = "opacity 500ms ease";
     splash.style.opacity = "0";
     setTimeout(() => { if (splash.parentNode) splash.remove(); }, 520);
-  }, 2600);
+  }, 4000);
 
   window.addEventListener("pageshow", (e) => {
     if (e.persisted) window.location.reload();
