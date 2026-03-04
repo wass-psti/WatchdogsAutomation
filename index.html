@@ -67,12 +67,12 @@
 .wa-splash-logo {
   width: min(480px, 80vw);
   height: auto;
-  filter: drop-shadow(0 0 30px rgba(255,255,255,0.4)) drop-shadow(0 0 60px rgba(255,109,5,0.6));
+  filter: drop-shadow(0 0 30px rgba(255,255,255,0.4)) drop-shadow(0 0 60px rgba(14,176,151,0.7));
   animation: logoPulse 2.5s ease-in-out infinite;
 }
 @keyframes logoPulse {
-  0%, 100% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)) drop-shadow(0 0 40px rgba(255,109,5,0.5)); }
-  50%       { filter: drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(255,109,5,0.9)); }
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)) drop-shadow(0 0 40px rgba(14,176,151,0.5)); }
+  50%       { filter: drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(14,176,151,1)); }
 }
 
 /* Glitch title */
@@ -93,12 +93,12 @@
   width: 100%;
 }
 .wa-glitch::before {
-  color: #00ffff;
+  color: #0eb097;
   animation: glitchTop 3s infinite;
   clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
 }
 .wa-glitch::after {
-  color: #ff003c;
+  color: #ac0505;
   animation: glitchBot 3s infinite;
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
 }
@@ -129,7 +129,7 @@
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.15);
   color: rgba(255,255,255,0.92);
-  box-shadow: 0 0 0 1px rgba(255,109,5,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow: 0 0 0 1px rgba(14,176,151,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 .wa-boot-title {
   font-size: 10px;
@@ -138,7 +138,7 @@
   opacity: 0.5;
   text-transform: uppercase;
   margin-bottom: 6px;
-  color: #ffb347;
+  color: #0eb097;
 }
 .wa-boot-line {
   display: flex;
@@ -151,8 +151,8 @@
 .wa-boot-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 8px #00ff88, 0 0 16px #00ff88;
+  background: #0eb097;
+  box-shadow: 0 0 8px #0eb097, 0 0 16px #0eb097;
   animation: waPulse 0.9s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -161,7 +161,7 @@
   50%       { transform: scale(1.2);  opacity: 1; }
 }
 .wa-boot-prefix {
-  color: #ffb347;
+  color: #0eb097;
   font-weight: 800;
   font-size: 12px;
 }
@@ -176,7 +176,7 @@
   fill: none;
   stroke: rgba(255,255,255,0.9);
   stroke-width: 2;
-  filter: drop-shadow(0 0 6px rgba(255,180,50,0.7));
+  filter: drop-shadow(0 0 6px rgba(14,176,151,0.8));
 }
 .wa-gear-large {
   top: 0; left: 0;
@@ -225,13 +225,13 @@
 }
 .wa-orb-1 {
   width: 300px; height: 300px;
-  background: rgba(255,180,50,0.25);
+  background: rgba(172,5,5,0.4);
   top: -80px; right: -60px;
   animation: orbFloat 6s ease-in-out infinite;
 }
 .wa-orb-2 {
   width: 200px; height: 200px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(14,176,151,0.35);
   bottom: -40px; left: -40px;
   animation: orbFloat 8s ease-in-out infinite reverse;
 }
@@ -245,7 +245,7 @@
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.2);
   border-top-color: #fff;
-  border-right-color: rgba(255,180,50,0.6);
+  border-right-color: rgba(14,176,151,0.6);
   animation: waSpin 0.7s linear infinite;
 }
 @keyframes waSpin { to { transform: rotate(360deg); } }
@@ -363,7 +363,7 @@
 <div id="splash" style="
   position:fixed; inset:0; z-index:9999;
   display:flex; align-items:center; justify-content:center;
-  background: linear-gradient(135deg, #FF6D05 0%, #cc4a00 60%, #1a0a00 100%);
+  background: linear-gradient(135deg, #0eb097 0%, #0a6b5e 35%, #1a0505 65%, #7a0000 100%);
   overflow:hidden;">
 
   <!-- Corner brackets -->
@@ -553,7 +553,6 @@
           class="project-card-img"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
-        <!-- Fallback placeholder (hidden unless image errors) -->
         <div class="project-card-img-placeholder" style="display:none;">
           <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.5">
             <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
@@ -575,7 +574,6 @@
           class="project-card-img"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
-        <!-- Fallback placeholder (hidden unless image errors) -->
         <div class="project-card-img-placeholder" style="display:none;">
           <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.5">
             <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
