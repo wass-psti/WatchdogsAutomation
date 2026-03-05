@@ -850,62 +850,43 @@
       </div>
     </div>
 
- <!-- ═══════════════════ CONTACT ═══════════════════ -->
-<section id="contact" class="border-t border-slate-200 bg-slate-950 text-white">
-  <div class="mx-auto max-w-7xl px-4 py-14 grid gap-10 lg:grid-cols-12 lg:items-start">
-
-    <!-- LEFT COLUMN: Info + Map -->
-    <div class="lg:col-span-6">
-      <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
-      <p class="mt-3 text-slate-300 max-w-2xl">
-        Reach out for projects, careers, or general inquiries. We'll reply with clarifying questions and next steps.
-      </p>
-      <div class="mt-6 grid gap-3 text-sm text-slate-300">
-        <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogautomation.com">info@watchdogautomation.com</a></div>
-        <div><span class="font-semibold text-white">Phone No.:</span> <a class="underline hover:text-white" href="tel:+639178883003">+63 917 888 3003</a></div>
-        <div><span class="font-semibold text-white">Address:</span> Bldg. 2, Paseo De Amores, Gun-ob, Lapu-lapu City, Lapu-Lapu City, Philippines, 6015</div>
-      </div>
-
-      <!-- Google Maps — now INSIDE the left column -->
-      <div class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph"
-          width="100%"
-          height="280"
-          style="border:0; display:block; width:100%;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+    <!-- Google Maps -->
+    <div class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full min-w-0">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph"
+        width="100%"
+        height="300"
+        style="border:0; display:block; width:100%; min-width:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
-
-    <!-- RIGHT COLUMN: Contact Form -->
-    <div class="lg:col-span-6">
+    
+    <div class="lg:col-span-5">
       <div class="rounded-3xl bg-white text-slate-900 p-6">
         <div class="font-extrabold text-xl">Contact Us</div>
         <p class="mt-1 text-sm text-slate-600">Reach out to us!</p>
         <form id="contactForm" class="mt-5 grid gap-3">
-          <label class="grid gap-1">
-            <span class="text-sm font-semibold">Name</span>
-            <input id="from_name" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" required />
-          </label>
-          <label class="grid gap-1">
-            <span class="text-sm font-semibold">Email</span>
-            <input type="email" id="from_email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" required />
-          </label>
-          <label class="grid gap-1">
-            <span class="text-sm font-semibold">Message</span>
-            <textarea rows="4" id="message" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..." required></textarea>
-          </label>
-          <button id="submitBtn" class="mt-2 rounded-xl bg-[#0eb097] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0a6b5e] transition-colors" type="button">
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Name</span>
+          <input id="from_name" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" required />
+        </label>
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Email</span>
+          <input type="email" id="from_email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" required />
+        </label>
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Message</span>
+          <textarea rows="4" id="message" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..." required></textarea>
+        </label>
+        <button id="submitBtn" class="mt-2 rounded-xl bg-[#0eb097] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0a6b5e] transition-colors" type="button">
             Send Message
-          </button>
-          <div id="formStatus" class="text-xs text-center"></div>
-        </form>
+        </button>
+        <div id="formStatus" class="text-xs text-center"></div>
+      </form>
       </div>
     </div>
-
   </div>
 </section>
 
