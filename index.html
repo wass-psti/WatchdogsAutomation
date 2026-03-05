@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("YOUR_PUBLIC_KEY");</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Watchdog Automation | PLC, HMI, SCADA & Industrial Control Systems</title>
@@ -853,7 +855,7 @@
         <p class="mt-1 text-sm text-slate-600">No backend here yet—use email for now. We can add a form service later.</p>
         <form class="mt-5 grid gap-3" onsubmit="event.preventDefault(); alert('This demo form does not send yet. Use the email link for now.');">
           <label class="grid gap-1">
-            <span class="text-sm font-semibold">Name</span>
+            <span class="text-sm font-semibold">Subject</span>
             <input class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" />
           </label>
           <label class="grid gap-1">
