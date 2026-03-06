@@ -355,6 +355,11 @@
   background: linear-gradient(90deg, #FF6D05 0%, #ffb347 100%);
   flex-shrink: 0;
 }
+
+/* Rotate arrow when dropdown is open */
+.group:hover .nav-arrow {
+  transform: rotate(180deg);
+  
   </style>
 </head>
 
@@ -459,7 +464,7 @@
       <div class="relative group">
         <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
           About Us
-          <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          <svg class="nav-arrow w-3 h-3 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
         </button>
         <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
           <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
@@ -474,7 +479,7 @@
       <div class="relative group">
         <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
           Services
-          <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          <svg class="nav-arrow w-3 h-3 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
         </button>
         <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
           <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
@@ -492,7 +497,7 @@
       <div class="relative group">
         <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
           Projects
-          <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          <svg class="nav-arrow w-3 h-3 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
         </button>
         <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
           <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
