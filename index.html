@@ -436,25 +436,22 @@
   </div>
 </div>-->
 
-<!-- ═══════════════════ HEADER/NAV ═══════════════════ -->
+<!-- ═══════════════════ HEADER ═══════════════════ -->
 <header class="sticky top-0 z-50 bg-[#000000]">
-  <!-- CTA + Hamburger -->
-    <div class="flex items-center gap-2 shrink-0">
-      <a href="#contact" class="hidden sm:inline-flex items-center justify-center rounded-md bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
-        Contact Us
-      </a>
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+
+    <!-- Left: Hamburger + Logo -->
+    <div class="flex items-center gap-3">
       <button id="mobileMenuBtn" class="md:hidden p-2 text-white" aria-label="Open menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
+      <a href="/" class="flex items-center shrink-0">
+        <img src="./assets/images/WAWithoutText2.png?v=1" alt="Watchdog Logo" class="h-12 w-auto object-contain"/>
+        <img src="./assets/images/WANeutral2.png?v=1" alt="Watchdog Text" class="h-12 w-auto object-contain"/>
+      </a>
     </div>
-  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="flex items-center shrink-0">
-      <img src="./assets/images/WAWithoutText2.png?v=1" alt="Watchdog Logo" class="h-12 w-auto object-contain"/>
-      <img src="./assets/images/WANeutral2.png?v=1" alt="Watchdog Text" class="h-12 w-auto object-contain"/>
-    </a>
 
-    <!-- Desktop Nav -->
+    <!-- Center: Desktop Nav -->
     <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
       <a class="px-4 py-2 text-white hover:text-slate-300" href="#hero">Home</a>
 
@@ -466,9 +463,9 @@
         <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
           <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
           <ul class="py-2">
-            <li><a href="#industries" class="block px-4 py-2 text-sm text-white hover:bg-slate-50">Our Story</a></li>
-            <li><a href="#process" class="block px-4 py-2 text-sm text-white hover:bg-slate-50">How We Work</a></li>
-            <li><a href="#partnerships" class="block px-4 py-2 text-sm text-white hover:bg-slate-50">Partnerships</a></li>
+            <li><a href="#industries" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Story</a></li>
+            <li><a href="#process" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">How We Work</a></li>
+            <li><a href="#partnerships" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Partnerships</a></li>
           </ul>
         </div>
       </div>
@@ -507,6 +504,13 @@
 
       <a class="px-4 py-2 text-white hover:text-slate-300" href="#partnerships">Partners</a>
     </nav>
+
+    <!-- Right: Contact Us -->
+    <a href="#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
+      Contact Us
+    </a>
+
+  </div>
 </header>
 
 <!-- ═══ MOBILE DRAWER OVERLAY ═══ -->
@@ -534,7 +538,6 @@
       <span class="font-semibold text-sm">Home</span>
     </a>
 
-    <!-- About Us accordion -->
     <div class="drawer-accordion">
       <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
         <div class="flex items-center gap-4">
@@ -544,13 +547,12 @@
         <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="#industries" class="block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
-        <a href="#process" class="block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
-        <a href="#partnerships" class="block py-2 text-sm text-white/60 hover:text-white">Partnerships</a>
+        <a href="#industries" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
+        <a href="#process" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
+        <a href="#partnerships" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Partnerships</a>
       </div>
     </div>
 
-    <!-- Services accordion -->
     <div class="drawer-accordion">
       <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
         <div class="flex items-center gap-4">
@@ -560,16 +562,15 @@
         <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">PLC & SCADA Engineering</a>
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">Variable Speed Drive Solutions</a>
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">Offshore & Rig Modernization</a>
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">Process Instrumentation</a>
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">Control Panel Assembly</a>
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">Automation Training</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">PLC & SCADA Engineering</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Variable Speed Drive Solutions</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Offshore & Rig Modernization</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Process Instrumentation</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Control Panel Assembly</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Automation Training</a>
       </div>
     </div>
 
-    <!-- Projects accordion -->
     <div class="drawer-accordion">
       <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
         <div class="flex items-center gap-4">
@@ -579,8 +580,8 @@
         <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="#services" class="block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
-        <a href="#projects" class="block py-2 text-sm text-white/60 hover:text-white">Case Studies</a>
+        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
+        <a href="#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Case Studies</a>
       </div>
     </div>
 
@@ -588,11 +589,12 @@
       <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <span class="font-semibold text-sm">Partners</span>
     </a>
+
   </nav>
 
   <!-- Drawer Footer CTA -->
   <div class="px-5 py-5 border-t border-white/10">
-    <a href="#contact" class="flex items-center justify-center w-full rounded-md bg-[#ac0505] px-4 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
+    <a href="#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#ac0505] px-4 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
       Contact Us
     </a>
   </div>
@@ -619,12 +621,10 @@
   closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
 
-  // Close drawer on nav link click
-  drawer.querySelectorAll('.drawer-link, .drawer-acc-panel a').forEach(link => {
+  drawer.querySelectorAll('.drawer-link').forEach(link => {
     link.addEventListener('click', closeDrawer);
   });
 
-  // Accordion toggle
   drawer.querySelectorAll('.drawer-acc-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const panel = btn.nextElementSibling;
