@@ -654,7 +654,7 @@
   
   <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="font-extrabold italic text-4xl sm:text-4xl text-white text-center leading-tight">You imagine, We integrate.</h1>
+      <h1 class="font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight">You imagine, We integrate.</h1>
 
       <!--<img
         src="./assets/images/WALogoOutlined.png"
@@ -666,11 +666,11 @@
         Engineering Precision in Industrial Automation
       </p>
 
-      <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 justify-center">
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
           Request Consultation
         </a>
-        <a href="#projects" class="inline-flex items-center justify-center rounded-xl bg-[#ac0505] px-5 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] justify-center">
+        <a href="#projects" class="inline-flex items-center justify-center rounded-xl bg-[#ac0505] px-5 py-3 text-sm font-semibold text-white hover:bg-[#8b0000]">
           View Projects
         </a>
       </div>
@@ -710,6 +710,40 @@
     </div>
   </div>
 </section>
+
+  <!-- ═══════════════════ PARTNERSHIPS ═══════════════════ -->
+<section id="partnerships" class="overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 pt-14 pb-6">
+    <h2 class="text-3xl font-extrabold tracking-tight">Partnerships</h2>
+    <p class="mt-2 text-slate-500 text-sm">Trusted brands we work with</p>
+  </div>
+
+  <!-- Marquee track -->
+  <div class="relative w-full overflow-hidden pb-14" style="mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);">
+    <div class="wa-marquee-track flex items-center gap-16">
+      <!-- Set 1 -->
+      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" />
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" aria-hidden="true" />
+      <!-- Set 3 (extra duplicate for wider screens) -->
+      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" aria-hidden="true" />
+    </div>
+  </div>
+</section>
+
+<style>
+.wa-marquee-track {
+  width: max-content;
+  animation: waMarquee 18s linear infinite;
+}
+.wa-marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes waMarquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+</style>
 
 <!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
 <section id="services"
@@ -858,40 +892,6 @@
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════ PARTNERSHIPS ═══════════════════ -->
-<section id="partnerships" class="overflow-hidden">
-  <div class="mx-auto max-w-7xl px-4 pt-14 pb-6">
-    <h2 class="text-3xl font-extrabold tracking-tight">Partnerships</h2>
-    <p class="mt-2 text-slate-500 text-sm">Trusted brands we work with</p>
-  </div>
-
-  <!-- Marquee track -->
-  <div class="relative w-full overflow-hidden pb-14" style="mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);">
-    <div class="wa-marquee-track flex items-center gap-16">
-      <!-- Set 1 -->
-      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" />
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-      <!-- Set 3 (extra duplicate for wider screens) -->
-      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-    </div>
-  </div>
-</section>
-
-<style>
-.wa-marquee-track {
-  width: max-content;
-  animation: waMarquee 18s linear infinite;
-}
-.wa-marquee-track:hover {
-  animation-play-state: paused;
-}
-@keyframes waMarquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
-</style>
 
 <!-- ═══════════════════ CALL TO ACTION SECTION ═══════════════════ -->
 <section id="projects" class="bg-slate-50">
