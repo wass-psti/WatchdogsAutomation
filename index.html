@@ -4,1250 +4,1250 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Watchdog Automation | PLC, HMI, SCADA & Industrial Control Systems</title>
-  <meta name="description" content="Watchdogs Automation delivers PLC programming, HMI/SCADA integration, instrumentation, commissioning, and industrial automation services in the Philippines." />
+  <meta
+    name="description"
+    content="Watchdog Automation delivers PLC programming, HMI/SCADA integration, instrumentation, commissioning, and industrial automation services in the Philippines."
+  />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
- html, body { font-family: 'Manrope', sans-serif; }
- html, body { overflow-x: hidden; }
+    :root {
+      --brand-teal: #0eb097;
+      --brand-teal-dark: #0a6b5e;
+      --brand-red: #ac0505;
+      --brand-red-dark: #8b0000;
+      --brand-black: #000000;
+      --text-dark: #0f172a;
+      --text-mid: #475569;
+      --border-light: #e2e8f0;
+      --surface-light: #ffffff;
+    }
 
-/* ── Splash ── */
-#splash {
-  font-family: 'Manrope', sans-serif;
-  overflow: hidden;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Animated grid background */
-#splash::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: gridDrift 8s linear infinite;
-}
-@keyframes gridDrift {
-  0%   { transform: translate(0, 0); }
-  100% { transform: translate(40px, 40px); }
-}
+    body {
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+      color: var(--text-dark);
+      background: #ffffff;
+    }
 
-/* Scanline overlay */
-#splash::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.08) 2px,
-    rgba(0,0,0,0.08) 4px
-  );
-  pointer-events: none;
-  z-index: 2;
-}
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      z-index: 10001;
+      background: #ffffff;
+      color: #000000;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+      transition: top 0.2s ease;
+    }
 
-.wa-splash-wrap {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  padding: 24px;
-  width: min(760px, 92vw);
-}
+    .skip-link:focus {
+      top: 1rem;
+    }
 
-.wa-splash-logo {
-  width: min(480px, 80vw);
-  height: auto;
-  filter: drop-shadow(0 0 30px rgba(255,255,255,0.4)) drop-shadow(0 0 60px rgba(14,176,151,0.7));
-  animation: logoPulse 2.5s ease-in-out infinite;
-}
-@keyframes logoPulse {
-  0%, 100% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)) drop-shadow(0 0 40px rgba(14,176,151,0.5)); }
-  50%       { filter: drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(14,176,151,1)); }
-}
+    .section-heading {
+      font-size: clamp(1.875rem, 3vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
 
-/* Glitch title */
-.wa-glitch {
-  font-size: clamp(11px, 2vw, 14px);
-  font-weight: 800;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #fff;
-  position: relative;
-  animation: glitch 3s infinite;
-}
-.wa-glitch::before,
-.wa-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-}
-.wa-glitch::before {
-  color: #0eb097;
-  animation: glitchTop 3s infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-}
-.wa-glitch::after {
-  color: #ac0505;
-  animation: glitchBot 3s infinite;
-  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-}
-@keyframes glitch {
-  0%, 90%, 100% { transform: none; }
-  92%           { transform: skewX(-1deg); }
-  94%           { transform: skewX(1deg); }
-}
-@keyframes glitchTop {
-  0%, 90%, 100% { transform: none; opacity: 0; }
-  91%           { transform: translate(-2px, -2px); opacity: 0.8; }
-  93%           { transform: translate(2px, 0); opacity: 0.8; }
-  95%           { opacity: 0; }
-}
-@keyframes glitchBot {
-  0%, 90%, 100% { transform: none; opacity: 0; }
-  92%           { transform: translate(2px, 2px); opacity: 0.8; }
-  94%           { transform: translate(-2px, 0); opacity: 0.8; }
-  96%           { opacity: 0; }
-}
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 1.5rem;
+      border: 1px solid var(--border-light);
+      background: var(--surface-light);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
+    }
 
-/* Boot terminal box */
-.wa-boot {
-  width: min(520px, 88vw);
-  border-radius: 12px;
-  padding: 14px 16px;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.92);
-  box-shadow: 0 0 0 1px rgba(14,176,151,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-}
-.wa-boot-title {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  font-weight: 800;
-  opacity: 0.5;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  color: #0eb097;
-}
-.wa-boot-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  font-family: monospace;
-  letter-spacing: 0.04em;
-}
-.wa-boot-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #0eb097;
-  box-shadow: 0 0 8px #0eb097, 0 0 16px #0eb097;
-  animation: waPulse 0.9s ease-in-out infinite;
-  flex-shrink: 0;
-}
-@keyframes waPulse {
-  0%, 100% { transform: scale(0.85); opacity: 0.5; }
-  50%       { transform: scale(1.2);  opacity: 1; }
-}
-.wa-boot-prefix {
-  color: #0eb097;
-  font-weight: 800;
-  font-size: 12px;
-}
-/* ── Gears ── */
-.wa-gears {
-  position: relative;
-  width: 120px;
-  height: 80px;
-}
-.wa-gear {
-  position: absolute;
-  fill: none;
-  stroke: rgba(255,255,255,0.9);
-  stroke-width: 2;
-  filter: drop-shadow(0 0 6px rgba(14,176,151,0.8));
-}
-.wa-gear-large {
-  top: 0; left: 0;
-  width: 64px; height: 64px;
-  animation: gearSpin 2s linear infinite;
-  transform-origin: 32px 32px;
-}
-.wa-gear-medium {
-  top: 18px; left: 46px;
-  width: 44px; height: 44px;
-  animation: gearSpin 2s linear infinite reverse;
-  transform-origin: 22px 22px;
-}
-.wa-gear-small {
-  top: 2px; left: 78px;
-  width: 30px; height: 30px;
-  animation: gearSpin 1.33s linear infinite;
-  transform-origin: 15px 15px;
-}
-@keyframes gearSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-    
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+    }
 
-/* Corner decorations */
-.wa-corner {
-  position: absolute;
-  width: 20px; height: 20px;
-  border-color: rgba(255,255,255,0.4);
-  border-style: solid;
-  z-index: 3;
-}
-.wa-corner-tl { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
-.wa-corner-tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
-.wa-corner-bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
-.wa-corner-br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+    .project-card-img,
+    .project-card-img-placeholder {
+      width: 100%;
+      height: 180px;
+      display: block;
+      flex-shrink: 0;
+      background: #f1f5f9;
+    }
 
-/* Floating orbs */
-.wa-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  pointer-events: none;
-  z-index: 1;
-}
-.wa-orb-1 {
-  width: 300px; height: 300px;
-  background: rgba(172,5,5,0.4);
-  top: -80px; right: -60px;
-  animation: orbFloat 6s ease-in-out infinite;
-}
-.wa-orb-2 {
-  width: 200px; height: 200px;
-  background: rgba(14,176,151,0.35);
-  bottom: -40px; left: -40px;
-  animation: orbFloat 8s ease-in-out infinite reverse;
-}
-@keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0); }
-  50%       { transform: translate(20px, -20px); }
-}
+    .project-card-img {
+      object-fit: cover;
+    }
 
-.wa-spinner {
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.2);
-  border-top-color: #fff;
-  border-right-color: rgba(14,176,151,0.6);
-  animation: waSpin 0.7s linear infinite;
-}
-@keyframes waSpin { to { transform: rotate(360deg); } }
+    .project-card-img-placeholder {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
 
-/* ── Project Cards ── */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 1.5rem;
-  border: 1px solid #e2e8f0;
-  background: #fff;
-  overflow: hidden;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.project-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.10);
-  transform: translateY(-3px);
-}
+    .project-card-img-placeholder svg {
+      opacity: 0.3;
+    }
 
-.project-card-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  background: #f1f5f9;
-}
+    .card-accent-line {
+      height: 3px;
+      flex-shrink: 0;
+    }
 
-.project-card-img-placeholder {
-  width: 100%;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  flex-shrink: 0;
-}
-.project-card-img-placeholder svg {
-  opacity: 0.25;
-}
+    .project-card-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
 
-.project-card-body {
-  padding: 1.25rem 1.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+    .project-card-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 0.1875rem 0.625rem;
+      border-radius: 9999px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
 
-/* ── Tags — all use the same filled pill style ── */
-.project-card-tag {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  padding: 2px 10px;
-  border-radius: 9999px;
-  color: #ffffff;
-  width: fit-content;
-}
-.project-card-tag::before { display: none; }
+    .project-card-title {
+      font-size: 1.1rem;
+      line-height: 1.3;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
 
-.tag-orange { background-color: #f97316; }
-.tag-green  { background-color: #059669; }
-.tag-sky    { background-color: #0284c7; }
-.tag-slate  { background-color: #475569; }
+    .project-card-desc {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--text-mid);
+      flex: 1;
+    }
 
-.project-card-title {
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1.3;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-}
-.project-card-desc {
-  font-size: 0.875rem;
-  color: #475569;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-  flex: 1;
-}
-.project-card-list {
-  list-style: none;
-  padding: 0; margin: 0;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.project-card-list li {
-  font-size: 0.8125rem;
-  color: #64748b;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.project-card-list li::before {
-  content: '';
-  display: inline-block;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: #FF6D05;
-  flex-shrink: 0;
-}
+    .desktop-menu {
+      position: absolute;
+      top: calc(100% + 0.25rem);
+      left: 0;
+      width: 14rem;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+      z-index: 60;
+    }
 
-.card-accent-line {
-  height: 3px;
-  background: linear-gradient(90deg, #FF6D05 0%, #ffb347 100%);
-  flex-shrink: 0;
-}
+    .desktop-dropdown:hover .desktop-menu,
+    .desktop-dropdown:focus-within .desktop-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
-/* Rotate arrow when dropdown is open */
-.group:hover .nav-arrow {
-  transform: rotate(180deg);
-  
+    .desktop-dropdown:hover .nav-arrow,
+    .desktop-dropdown:focus-within .nav-arrow {
+      transform: rotate(180deg);
+    }
+
+    .wa-marquee-track {
+      width: max-content;
+      animation: waMarquee 40s linear infinite;
+    }
+
+    @keyframes waMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.333%); }
+    }
+
+    #splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-teal-dark) 35%, #1a0505 65%, #7a0000 100%);
+    }
+
+    #splash::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridDrift 8s linear infinite;
+    }
+
+    #splash::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.08) 2px,
+        rgba(0, 0, 0, 0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .wa-splash-wrap {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.125rem;
+      width: min(760px, 92vw);
+      padding: 1.5rem;
+    }
+
+    .wa-splash-logo {
+      width: min(480px, 80vw);
+      height: auto;
+      filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 60px rgba(14, 176, 151, 0.7));
+      animation: logoPulse 2.5s ease-in-out infinite;
+    }
+
+    .wa-glitch {
+      position: relative;
+      color: #ffffff;
+      font-size: clamp(11px, 2vw, 14px);
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      animation: glitch 3s infinite;
+    }
+
+    .wa-glitch::before,
+    .wa-glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .wa-glitch::before {
+      color: var(--brand-teal);
+      animation: glitchTop 3s infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    }
+
+    .wa-glitch::after {
+      color: var(--brand-red);
+      animation: glitchBot 3s infinite;
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    }
+
+    .wa-boot {
+      width: min(520px, 88vw);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 1px rgba(14, 176, 151, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .wa-boot-title {
+      margin-bottom: 0.375rem;
+      color: var(--brand-teal);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+
+    .wa-boot-line {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .wa-boot-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: var(--brand-teal);
+      box-shadow: 0 0 8px var(--brand-teal), 0 0 16px var(--brand-teal);
+      animation: waPulse 0.9s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .wa-boot-prefix {
+      color: var(--brand-teal);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .wa-gears {
+      position: relative;
+      width: 120px;
+      height: 80px;
+    }
+
+    .wa-gear {
+      position: absolute;
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.9);
+      stroke-width: 2;
+      filter: drop-shadow(0 0 6px rgba(14, 176, 151, 0.8));
+    }
+
+    .wa-gear-large {
+      top: 0;
+      left: 0;
+      width: 64px;
+      height: 64px;
+      transform-origin: 32px 32px;
+      animation: gearSpin 2s linear infinite;
+    }
+
+    .wa-gear-medium {
+      top: 18px;
+      left: 46px;
+      width: 44px;
+      height: 44px;
+      transform-origin: 22px 22px;
+      animation: gearSpin 2s linear infinite reverse;
+    }
+
+    .wa-gear-small {
+      top: 2px;
+      left: 78px;
+      width: 30px;
+      height: 30px;
+      transform-origin: 15px 15px;
+      animation: gearSpin 1.33s linear infinite;
+    }
+
+    .wa-corner {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.4);
+      z-index: 3;
+    }
+
+    .wa-corner-tl { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
+    .wa-corner-tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
+    .wa-corner-bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
+    .wa-corner-br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+    .wa-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .wa-orb-1 {
+      width: 300px;
+      height: 300px;
+      top: -80px;
+      right: -60px;
+      background: rgba(172, 5, 5, 0.4);
+      animation: orbFloat 6s ease-in-out infinite;
+    }
+
+    .wa-orb-2 {
+      width: 200px;
+      height: 200px;
+      bottom: -40px;
+      left: -40px;
+      background: rgba(14, 176, 151, 0.35);
+      animation: orbFloat 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes gridDrift {
+      from { transform: translate(0, 0); }
+      to { transform: translate(40px, 40px); }
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)) drop-shadow(0 0 40px rgba(14,176,151,0.5)); }
+      50% { filter: drop-shadow(0 0 40px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(14,176,151,1)); }
+    }
+
+    @keyframes glitch {
+      0%, 90%, 100% { transform: none; }
+      92% { transform: skewX(-1deg); }
+      94% { transform: skewX(1deg); }
+    }
+
+    @keyframes glitchTop {
+      0%, 90%, 100% { transform: none; opacity: 0; }
+      91% { transform: translate(-2px, -2px); opacity: 0.8; }
+      93% { transform: translate(2px, 0); opacity: 0.8; }
+      95% { opacity: 0; }
+    }
+
+    @keyframes glitchBot {
+      0%, 90%, 100% { transform: none; opacity: 0; }
+      92% { transform: translate(2px, 2px); opacity: 0.8; }
+      94% { transform: translate(-2px, 0); opacity: 0.8; }
+      96% { opacity: 0; }
+    }
+
+    @keyframes waPulse {
+      0%, 100% { transform: scale(0.85); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    @keyframes gearSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(20px, -20px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
-<body class="bg-white text-slate-900 overflow-x-hidden">
+  <div id="splash" aria-hidden="true">
+    <div class="wa-corner wa-corner-tl"></div>
+    <div class="wa-corner wa-corner-tr"></div>
+    <div class="wa-corner wa-corner-bl"></div>
+    <div class="wa-corner wa-corner-br"></div>
+    <div class="wa-orb wa-orb-1"></div>
+    <div class="wa-orb wa-orb-2"></div>
 
-<!-- ═══════════════════ SPLASH ═══════════════════ -->
-<div id="splash" style="
-  position:fixed; inset:0; z-index:9999;
-  display:flex; align-items:center; justify-content:center;
-  background: linear-gradient(135deg, #0eb097 0%, #0a6b5e 35%, #1a0505 65%, #7a0000 100%);
-  overflow:hidden;">
+    <div class="wa-splash-wrap">
+      <div class="wa-glitch" data-text="WELCOME TO THE OFFICIAL WEBSITE OF">
+        WELCOME TO THE OFFICIAL WEBSITE OF
+      </div>
 
-  <!-- Corner brackets -->
-  <div class="wa-corner wa-corner-tl"></div>
-  <div class="wa-corner wa-corner-tr"></div>
-  <div class="wa-corner wa-corner-bl"></div>
-  <div class="wa-corner wa-corner-br"></div>
+      <img
+        src="./assets/images/WANeutral2.png"
+        alt="Watchdog Automation wordmark"
+        class="wa-splash-logo"
+      />
 
-  <!-- Floating orbs -->
-  <div class="wa-orb wa-orb-1"></div>
-  <div class="wa-orb wa-orb-2"></div>
+      <div class="wa-boot" aria-live="polite">
+        <div class="wa-boot-title">// PLC Boot Sequence Initiated</div>
+        <div class="wa-boot-line">
+          <span class="wa-boot-dot"></span>
+          <span class="wa-boot-prefix">&gt;_</span>
+          <span id="waBootText">Initializing…</span>
+        </div>
+      </div>
 
-  <div class="wa-splash-wrap">
-    <div class="wa-glitch" data-text="WATCHDOG AUTOMATION SYSTEMS">WELCOME TO THE OFFICIAL WEBSITE OF</div>
-
-    <img src="./assets/images/WANeutral2.png" alt="Watchdog Automation" class="wa-splash-logo" />
-
-    <div class="wa-boot" aria-live="polite">
-      <div class="wa-boot-title">// PLC Boot Sequence Initiated</div>
-      <div class="wa-boot-line">
-        <span class="wa-boot-dot"></span>
-        <span class="wa-boot-prefix">&gt;_</span>
-        <span id="waBootText">Initializing…</span>
+      <div class="wa-gears" aria-label="Loading animation">
+        <svg class="wa-gear wa-gear-large" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z"/>
+          <path d="M32 4v6M32 54v6M4 32h6M54 32h6 M10.1 10.1l4.2 4.2M49.7 49.7l4.2 4.2 M49.7 14.3l-4.2 4.2M14.3 49.7l-4.2 4.2 M32 14v4M32 46v4M14 32h4M46 32h4 M16.9 16.9l2.8 2.8M44.3 44.3l2.8 2.8 M44.3 19.7l-2.8 2.8M19.7 44.3l-2.8 2.8"/>
+        </svg>
+        <svg class="wa-gear wa-gear-medium" viewBox="0 0 44 44" aria-hidden="true">
+          <path d="M22 13a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/>
+          <path d="M22 3v5M22 36v5M3 22h5M36 22h5 M7.6 7.6l3.5 3.5M32.9 32.9l3.5 3.5 M32.9 11.1l-3.5 3.5M11.1 32.9l-3.5 3.5 M22 8v3M22 33v3M8 22h3M33 22h3"/>
+        </svg>
+        <svg class="wa-gear wa-gear-small" viewBox="0 0 30 30" aria-hidden="true">
+          <path d="M15 9a6 6 0 1 0 0 12A6 6 0 0 0 15 9z"/>
+          <path d="M15 2v4M15 24v4M2 15h4M24 15h4 M5.5 5.5l2.8 2.8M21.7 21.7l2.8 2.8 M21.7 8.3l-2.8 2.8M8.3 21.7l-2.8 2.8"/>
+        </svg>
       </div>
     </div>
-
-    <div class="wa-gears" aria-label="Loading">
-      <!-- Large gear -->
-      <svg class="wa-gear wa-gear-large" viewBox="0 0 64 64">
-        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z"/>
-        <path d="M32 4v6M32 54v6M4 32h6M54 32h6
-                 M10.1 10.1l4.2 4.2M49.7 49.7l4.2 4.2
-                 M49.7 14.3l-4.2 4.2M14.3 49.7l-4.2 4.2
-                 M32 14v4M32 46v4M14 32h4M46 32h4
-                 M16.9 16.9l2.8 2.8M44.3 44.3l2.8 2.8
-                 M44.3 19.7l-2.8 2.8M19.7 44.3l-2.8 2.8"/>
-      </svg>
-      <!-- Medium gear -->
-      <svg class="wa-gear wa-gear-medium" viewBox="0 0 44 44">
-        <path d="M22 13a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/>
-        <path d="M22 3v5M22 36v5M3 22h5M36 22h5
-                 M7.6 7.6l3.5 3.5M32.9 32.9l3.5 3.5
-                 M32.9 11.1l-3.5 3.5M11.1 32.9l-3.5 3.5
-                 M22 8v3M22 33v3M8 22h3M33 22h3"/>
-      </svg>
-      <!-- Small gear -->
-      <svg class="wa-gear wa-gear-small" viewBox="0 0 30 30">
-        <path d="M15 9a6 6 0 1 0 0 12A6 6 0 0 0 15 9z"/>
-        <path d="M15 2v4M15 24v4M2 15h4M24 15h4
-                 M5.5 5.5l2.8 2.8M21.7 21.7l2.8 2.8
-                 M21.7 8.3l-2.8 2.8M8.3 21.7l-2.8 2.8"/>
-      </svg>
-    </div>
-
   </div>
-</div>
 
-<!-- ═══════════════════ TOP BAR ═══════════════════ -->
-<!--<div class="bg-slate-950 text-slate-200">
-  <div class="mx-auto max-w-7xl px-4 py-2 text-sm flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-    <div class="flex items-center gap-2">
-      <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-      <span>Industrial Automation • PLC • HMI/SCADA • Commissioning</span>
+  <header class="sticky top-0 z-50 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/85">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-1 mr-auto">
+        <button
+          id="mobileMenuBtn"
+          class="md:hidden p-2 text-white"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="mobileDrawer"
+          aria-expanded="false"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <a href="#hero" class="flex items-center shrink-0" aria-label="Watchdog Automation home">
+          <img src="./assets/images/WAWithoutText2.png?v=1" alt="Watchdog Automation logo mark" class="h-8 w-auto object-contain md:h-12" />
+          <img src="./assets/images/WANeutral2.png?v=1" alt="Watchdog Automation wordmark" class="h-8 w-auto object-contain md:h-12" />
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-1 text-sm font-semibold" aria-label="Primary">
+        <div class="desktop-dropdown relative">
+          <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300" type="button" aria-haspopup="true">
+            About Us
+            <svg class="nav-arrow h-4 w-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7l5 5 5-5H5z"/>
+            </svg>
+          </button>
+          <div class="desktop-menu">
+            <div class="h-0.5 rounded-t-xl bg-[var(--brand-red)]"></div>
+            <ul class="py-2">
+              <li><a href="#about" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Story</a></li>
+              <li><a href="#process" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">How We Work</a></li>
+              <li><a href="#partnerships" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Partners</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="desktop-dropdown relative">
+          <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300" type="button" aria-haspopup="true">
+            Projects
+            <svg class="nav-arrow h-4 w-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7l5 5 5-5H5z"/>
+            </svg>
+          </button>
+          <div class="desktop-menu">
+            <div class="h-0.5 rounded-t-xl bg-[var(--brand-red)]"></div>
+            <ul class="py-2">
+              <li><a href="#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Featured Projects</a></li>
+              <li><a href="#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Case Studies</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="desktop-dropdown relative">
+          <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300" type="button" aria-haspopup="true">
+            Careers
+            <svg class="nav-arrow h-4 w-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 7l5 5 5-5H5z"/>
+            </svg>
+          </button>
+          <div class="desktop-menu" style="width: 16rem;">
+            <div class="h-0.5 rounded-t-xl bg-[var(--brand-red)]"></div>
+            <ul class="py-2">
+              <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Internship / On-the-Job Training</a></li>
+              <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Engineering</a></li>
+              <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Finance</a></li>
+              <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Marketing</a></li>
+              <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Management</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex justify-end">
+        <a href="#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[var(--brand-red)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-red-dark)]">
+          Contact Us
+        </a>
+      </div>
     </div>
-    <div class="flex items-center gap-4">
-      <a class="hover:text-white" href="/cdn-cgi/l/email-protection#167f78707956617762757e72797165776362797b77627f79783875797b"><span class="__cf_email__" data-cfemail="2d44434b426d5a4c594e4549424a5e4c585942404c59444243034e4240">[email&#160;protected]</span></a>
-      <span class="text-slate-500">|</span>
-      <a class="hover:text-white" href="tel:+639178883003">+63 917 888 3003</a>
-    </div>
-  </div>
-</div>-->
+  </header>
 
-<!-- ═══════════════════ HEADER ═══════════════════ -->
-<header class="sticky top-0 z-50 bg-[#000000]">
-  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+  <div id="drawerOverlay" class="fixed inset-0 z-[998] hidden bg-black/60 md:hidden" aria-hidden="true"></div>
 
-    <!-- Left: Hamburger + Logo -->
-    <div class="flex items-center gap-1 mr-auto">
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-white" aria-label="Open menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  <aside
+    id="mobileDrawer"
+    class="fixed top-0 left-0 z-[999] flex h-full w-72 -translate-x-full flex-col bg-[#111] transition-transform duration-300 ease-in-out md:hidden"
+    aria-label="Mobile menu"
+    aria-hidden="true"
+  >
+    <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+      <div class="flex items-center gap-2">
+        <img src="./assets/images/WAWithoutText2.png?v=1" alt="Watchdog Automation logo mark" class="h-8 w-auto" />
+        <img src="./assets/images/WANeutral2.png?v=1" alt="Watchdog Automation wordmark" class="h-8 w-auto" />
+      </div>
+      <button id="drawerCloseBtn" class="p-1 text-white/60 hover:text-white" type="button" aria-label="Close menu">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12"/>
+        </svg>
       </button>
-      <a href="#" class="flex items-center shrink-0">
-        <img src="./assets/images/WAWithoutText2.png?v=1" alt="Watchdog Logo" class="h-8 md:h-12 w-auto object-contain"/>
-        <img src="./assets/images/WANeutral2.png?v=1" alt="Watchdog Text" class="h-8 md:h-12 w-auto object-contain"/>
-      </a>
     </div>
 
-    <!-- Center: Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
-      <!--<a class="px-4 py-2 text-white hover:text-slate-300" href="#hero">Home</a>-->
+    <nav class="flex-1 overflow-y-auto px-3 py-4" aria-label="Mobile primary">
+      <a href="#hero" class="drawer-link flex items-center gap-4 rounded-lg px-3 py-3 text-white/80 transition-colors hover:bg-white/10 hover:text-white">
+        <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span class="text-sm font-semibold">Home</span>
+      </a>
 
-      <div class="relative group">
-        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
-          About Us
-          <!-- ARROW -->
-          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
+      <div class="drawer-accordion">
+        <button class="drawer-acc-btn flex w-full items-center justify-between rounded-lg px-3 py-3 text-white/80 transition-colors hover:bg-white/10 hover:text-white" type="button" aria-expanded="false">
+          <div class="flex items-center gap-4">
+            <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span class="text-sm font-semibold">About Us</span>
+          </div>
+          <svg class="acc-chevron h-4 w-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
         </button>
-        <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
-          <ul class="py-2">
-            <li><a href="./about/ourStory.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Story</a></li>
-            <li><a href="./about/howWeWork.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">How We Work</a></li>
-            <li><a href="./about/ourPartners.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Partners</a></li>
-          </ul>
+        <div class="drawer-acc-panel hidden pl-12 pb-1">
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
+          <a href="#process" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
+          <a href="#partnerships" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
         </div>
       </div>
 
-      <div class="relative group">
-        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
-          Projects
-          <!-- ARROW -->
-          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
+      <div class="drawer-accordion">
+        <button class="drawer-acc-btn flex w-full items-center justify-between rounded-lg px-3 py-3 text-white/80 transition-colors hover:bg-white/10 hover:text-white" type="button" aria-expanded="false">
+          <div class="flex items-center gap-4">
+            <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+            <span class="text-sm font-semibold">Services</span>
+          </div>
+          <svg class="acc-chevron h-4 w-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
         </button>
-        <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
-          <ul class="py-2">
-            <li><a href="#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Featured Projects</a></li>
-            <li><a href="#services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Case Studies</a></li>
-          </ul>
+        <div class="drawer-acc-panel hidden pl-12 pb-1">
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">PLC &amp; SCADA Engineering</a>
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Variable Speed Drive Solutions</a>
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Offshore &amp; Rig Modernization</a>
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Process Instrumentation</a>
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Control Panel Assembly</a>
+          <a href="#about" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Automation Training</a>
         </div>
       </div>
 
-      <div class="relative group">
-        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
-          Careers
-          <!-- ARROW -->
-          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
+      <div class="drawer-accordion">
+        <button class="drawer-acc-btn flex w-full items-center justify-between rounded-lg px-3 py-3 text-white/80 transition-colors hover:bg-white/10 hover:text-white" type="button" aria-expanded="false">
+          <div class="flex items-center gap-4">
+            <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 3h18v18H3zM3 9h18M9 21V9"/>
+            </svg>
+            <span class="text-sm font-semibold">Projects</span>
+          </div>
+          <svg class="acc-chevron h-4 w-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
         </button>
-        <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
-          <ul class="py-2">
-            <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Internship / On-the-Job Training</a></li>
-            <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Engineering</a></li>
-            <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Finance</a></li>
-            <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Marketing</a></li>
-            <li><a href="#careers" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Management</a></li>
-          </ul>
+        <div class="drawer-acc-panel hidden pl-12 pb-1">
+          <a href="#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
+          <a href="#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Case Studies</a>
         </div>
       </div>
 
-    <!--<a class="px-4 py-2 text-white hover:text-slate-300" href="#partnerships">Partners</a>-->
+      <a href="#partnerships" class="drawer-link flex items-center gap-4 rounded-lg px-3 py-3 text-white/80 transition-colors hover:bg-white/10 hover:text-white">
+        <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span class="text-sm font-semibold">Partners</span>
+      </a>
     </nav>
 
-    <!-- Right: Contact Us -->
-    <div class="flex justify-end">
-    <a href="#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
-      Contact Us
-    </a>
-  </div>
-</header>
-
-<!-- ═══ MOBILE DRAWER OVERLAY ═══ -->
-<div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-[998] hidden md:hidden" aria-hidden="true"></div>
-
-<!-- ═══ MOBILE DRAWER ═══ -->
-<div id="mobileDrawer" class="fixed top-0 left-0 h-full w-72 bg-[#111] z-[999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
-
-  <!-- Drawer Header -->
-  <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
-    <div class="flex items-center gap-2">
-      <img src="./assets/images/WAWithoutText2.png?v=1" alt="Logo" class="h-8 w-auto"/>
-      <img src="./assets/images/WANeutral2.png?v=1" alt="Watchdog" class="h-8 w-auto"/>
-    </div>
-    <button id="drawerCloseBtn" class="text-white/60 hover:text-white p-1">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
-  </div>
-
-  <!-- Drawer Nav -->
-  <nav class="flex-1 overflow-y-auto py-4 px-3">
-
-    <a href="#hero" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span class="font-semibold text-sm">Home</span>
-    </a>
-
-    <div class="drawer-accordion">
-      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-        <div class="flex items-center gap-4">
-          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span class="font-semibold text-sm">About Us</span>
-        </div>
-        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="#industries" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
-        <a href="#process" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
-        <a href="#partnerships" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
-      </div>
-    </div>
-
-    <div class="drawer-accordion">
-      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-        <div class="flex items-center gap-4">
-          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span class="font-semibold text-sm">Services</span>
-        </div>
-        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">PLC & SCADA Engineering</a>
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Variable Speed Drive Solutions</a>
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Offshore & Rig Modernization</a>
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Process Instrumentation</a>
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Control Panel Assembly</a>
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Automation Training</a>
-      </div>
-    </div>
-
-    <div class="drawer-accordion">
-      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-        <div class="flex items-center gap-4">
-          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
-          <span class="font-semibold text-sm">Projects</span>
-        </div>
-        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      </button>
-      <div class="drawer-acc-panel hidden pl-12 pb-1">
-        <a href="#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
-        <a href="#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Case Studies</a>
-      </div>
-    </div>
-
-    <a href="#partnerships" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
-      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      <span class="font-semibold text-sm">Partners</span>
-    </a>
-
-  </nav>
-
-  <!-- Drawer Footer CTA -->
-    <a href="#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#ac0505] px-4 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
-      Contact Us
-    </a>
-  </div>
-</div>
-
-<script>
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const closeBtn = document.getElementById('drawerCloseBtn');
-  const drawer = document.getElementById('mobileDrawer');
-  const overlay = document.getElementById('drawerOverlay');
-
-  function openDrawer() {
-    drawer.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    drawer.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  menuBtn.addEventListener('click', openDrawer);
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-
-  drawer.querySelectorAll('.drawer-link').forEach(link => {
-    link.addEventListener('click', closeDrawer);
-  });
-
-  drawer.querySelectorAll('.drawer-acc-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const panel = btn.nextElementSibling;
-      const chevron = btn.querySelector('.acc-chevron');
-      panel.classList.toggle('hidden');
-      chevron.style.transform = panel.classList.contains('hidden') ? '' : 'rotate(180deg)';
-    });
-  });
-</script>
-
-<!-- ═══════════════════ ENDHEADER // HEROBEG ═══════════════════ -->
-<section id="hero" class="relative overflow-hidden">
-
-  <!-- Background Video -->
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    class="absolute inset-0 w-full h-full object-cover -z-10"
-    poster="./assets/images/WAHeroBGSuwayan.png">
-    <source src="./assets/videos/WAHeroVideo2.mp4" type="video/mp4"> 
-  </video>
-
-  <!-- Background Photo-->
-  <!-- <img src="./assets/images/WAHeroBG2.png" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover -z-10" /> -->
-
-  <!-- Dark overlay for text legibility -->
-  <div class="absolute inset-0 bg-black/50 -z-10"></div>
-  
-  <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight">You imagine, We integrate.</h1>
-
-      <!--<img
-        src="./assets/images/WALogoOutlined.png"
-        alt="Watchdog Automation"
-        class="w-full max-w-3xl h-auto"
-      /> -->
-
-      <p class="mt-6 text-lg mx-auto text-white font-bold text-center">
-        Engineering Precision in Industrial Automation
-      </p>
-
-      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-          Request Consultation
-        </a>
-        <a href="#projects" class="inline-flex items-center justify-center rounded-xl bg-[#ac0505] px-5 py-3 text-sm font-semibold text-white hover:bg-[#8b0000]">
-          View Projects
-        </a>
-      </div>
-
-      <!-- Hero feature tiles — kept exactly as original -->
-     <!-- <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">PLC & SCADA Systems</div>
-          <div class="text-slate-600">Design, programming, and integration of PLC and SCADA platforms for real-time monitoring, control, and data acquisition in industrial processes.</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">VFD Modernization</div>
-          <div class="text-slate-600">Upgrade and replacement of legacy variable frequency drives to improve motor control, energy efficiency, and system reliability.</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">Offshore Automation</div>
-          <div class="text-slate-600">Automation solutions for offshore facilities including control systems, instrumentation integration, and remote monitoring for harsh environments.</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">Building Management System (DesigoCC)</div>
-          <div class="text-slate-600">Implementation and integration of Siemens DesigoCC platforms for centralized monitoring and control of building HVAC, power, and safety systems.</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">Process Instrumentation</div>
-          <div class="text-slate-600">Installation and calibration of field instruments including pressure, temperature, flow, and level transmitters for accurate process measurement.</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">Electrical Control Panels Assembly</div>
-          <div class="text-slate-600">Design and assembly of industrial control panels integrating PLCs, relays, protection devices, and structured field wiring.</div>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4">
-          <div class="font-extrabold text-slate-950">Automation Training</div>
-          <div class="text-slate-600">Practical training programs covering PLC programming, control system fundamentals, and industrial automation best practices.</div>
-        </div>
-      </div>
-      -->
-    </div>
-  </div>
-</section>
-
-  <!-- ═══════════════════ PARTNERSHIPS ═══════════════════ -->
-<section id="partnerships" class="overflow-hidden">
- <!-- <div class="mx-auto max-w-7xl px-5 pt-14 pb-6">
-    <h2 class="text-3xl font-extrabold tracking-tight text-black">Our Partners</h2>
-    <p class="mt-2 text-slate-500 text-sm">Trusted brands we work with</p>
-  </div> -->
-
-  <!-- Marquee track -->
-  <div class="relative w-full overflow-hidden py-16" style="mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);">
-    <div class="wa-marquee-track flex items-center gap-16">
-      <!-- Set 1 -->
-      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" />
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-      <!-- Set 3 (extra duplicate for wider screens) -->
-      <img src="./assets/images/WAPartners.png" alt="Our Partners" class="h-20 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-    </div>
-  </div>
-</section>
-
-<style>
-.wa-marquee-track {
-  width: max-content;
-  animation: waMarquee 40s linear infinite;
-}
-
-@keyframes waMarquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
-</style>
-
-<!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
-<section id="projects"
-  class="relative bg-cover bg-center text-white"
-  style="background-image: url('./assets/images/WABackgroundBR.png');">
-
-  <!-- Subtle dark overlay so the cards pop -->
-  <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
-
-  <div class="relative mx-auto max-w-7xl px-4 py-16">
-    <div class="max-w-2xl">
-      <h3 class="text-3xl font-extrabold tracking-tight text-white">Our Projects</h3>
-      <p class="mt-3 text-white/80">
-        Real-world automation projects delivered across power, manufacturing, and industrial facilities.
-      </p>
-    </div>
-
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-      <!-- ── PROJECT CARD ONE / 1 ── -->
-      <a href="./projects/project1.html" class="project-card" style="text-decoration:none; color:inherit;">
-        <img
-          src="./assets/images/ProjectOne.jpg"
-          class="project-card-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="project-card-img-placeholder" style="display:none;">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0eb097" stroke-width="1.5">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-        <div class="card-accent-line" style="background: #0eb097;"></div>
-        <div class="project-card-body">
-          <span class="project-card-tag bg-[#0eb097]">Automating Water Source</span>
-          <div class="project-card-title">Pilipinas Water Resources, Inc</div>
-          <p class="project-card-desc">Supply, engineering, installation, testing and commissioning of a complete Water Quality Analysis System for turbidity, residual chlorine, conductivity, pH, pressure and flow</p>
-        </div>
-      </a>
-
-      <!-- ── PROJECT CARD TWO / 2 ── -->
-      <a href="./projects/project2.html" class="project-card" style="text-decoration:none; color:inherit;">
-        <img
-          src="./assets/images/DePal.JPG"
-          class="project-card-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="project-card-img-placeholder" style="display:none;">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ac0505" stroke-width="1.5">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-        <div class="card-accent-line" style="background: #ac0505;"></div>
-        <div class="project-card-body">
-          <span class="project-card-tag bg-[#ac0505]">PLC Upgrading</span>
-          <div class="project-card-title">DEPAL PLC Upgrading from S7-300 to S7-1500</div>
-          <p class="project-card-desc">This project involved upgrading the existing control system from the Siemens SIMATIC S7-300 PLC to the newer Siemens SIMATIC S7-1500 PLC platform. The work included migrating the PLC program, reconfiguring hardware, and ensuring proper system communication. The upgrade improved system performance, diagnostics capability, and long-term reliability of the DEPAL automation system.</p>
-        </div>
-      </a>
-
-      <!-- ── PROJECT CARD THREE / 3 ── -->
-    <a href="./projects/project3.html" class="project-card" style="text-decoration:none; color:inherit;">
-      <img
-        src="./assets/images/PLCUpgrade.jpeg"
-        class="project-card-img"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      />
-      <div class="project-card-img-placeholder" style="display:none;">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#3BC448" stroke-width="1.5">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-      </div>
-      <div class="card-accent-line" style="background: #3BC448;"></div>
-      <div class="project-card-body">
-        <span class="project-card-tag bg-[#3BC448]">PLC Migration</span>
-        <div class="project-card-title">PLC Migration from S7-300 to S7-1500 PLC at Ginebra San Miguel Mandaue Plant</div>
-        <p class="project-card-desc">This project involved upgrading the plant's automation system by migrating from the legacy Siemens S7-300 PLC platform to the more modern S7-1500 series. The work included converting existing PLC programs, updating hardware configuration, and ensuring compatibility with the plant's field devices and control network. The upgrade enhanced system performance, diagnostics, and long-term maintainability while supporting more reliable and efficient plant operations.</p>
-      </div>
-    </a>
-
-      <!-- ── PROJECT CARD FOUR / 4 ── -->
-      <a href="./projects/project4.html" class="project-card" style="text-decoration:none; color:inherit;">
-        <img
-              src="./assets/images/PLCUpgrade.jpeg"
-              class="project-card-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-        <div class="project-card-img-placeholder" style="display:none;">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#D447FF" stroke-width="1.5">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        </div>
-        <div class="card-accent-line" style="background: #D447FF;"></div>
-        <div class="project-card-body">
-          <span class="project-card-tag bg-[#D447FF]">BMS Integration</span>
-          <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
-          <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into existing BMS using PLC interface and industrial communication protocols. Work included signal wiring verification, PLC configuration, testing, and functional commissioning.</p>
-        </div>
-      </a>
-
-      <!-- ── PROJECT CARD FIVE / 5 ── -->
-      <a href="./projects/project5.html" class="project-card" style="text-decoration:none; color:inherit;">
-        <img
-              src="./assets/images/PLCUpgrade.jpeg"
-              class="project-card-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-        <div class="project-card-img-placeholder" style="display:none;">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#FF7B47" stroke-width="1.5">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        </div>
-        <div class="card-accent-line" style="background: #FF7B47;"></div>
-        <div class="project-card-body">
-          <span class="project-card-tag bg-[#FF7B47]">Control System Upgrade</span>
-          <div class="project-card-title">Control Panel Retrofit with New PLC System</div>
-          <p class="project-card-desc">Replacement of obsolete control panel with modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface. Performed full testing, loop checking, and commissioning.</p>
-        </div>
-      </a>
-
-      <!-- ── PROJECT CARD SIX / 6 ── -->
-      <a href="./projects/project6.html" class="project-card" style="text-decoration:none; color:inherit;">
-        <img
-              src="./assets/images/PLCUpgrade.jpeg"
-              class="project-card-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-        <div class="project-card-img-placeholder" style="display:none;">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#4797FF" stroke-width="1.5">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        </div>
-        <div class="card-accent-line" style="background: #4797FF;"></div>
-        <div class="project-card-body">
-          <span class="project-card-tag bg-[#4797FF]">SCADA / PLC Integration</span>
-          <div class="project-card-title">PLC and SCADA Integration for Plant Monitoring</div>
-          <p class="project-card-desc">Integrated multiple PLC systems into SCADA network for centralized monitoring and control. Configured communication, alarms, trends, and operator interface screens.</p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ CAREERS ═══════════════════ -->
-<section id="careers" class="bg-slate-50">
-  <div class="mx-auto max-w-7xl px-4 py-14">
-
-    <!-- Heading -->
-    <div class="max-w-2xl">
-      <h2 class="text-3xl font-extrabold tracking-tight">Careers at Watchdog Automation</h2>
-      <p class="mt-3 text-slate-600 text-lg">
-        We're looking for engineers who take pride in their craft. Join a team that builds real automation solutions for real industrial challenges.
-      </p>
-    </div>
-
-    <!-- Why Work Here -->
-    <div class="mt-10 grid gap-6 sm:grid-cols-3">
-      <div class="rounded-3xl border border-slate-200 bg-white p-6">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#0eb097">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg>
-        </div>
-        <h3 class="font-extrabold text-slate-900 mb-2">Hands-On Work</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Work on real PLC, SCADA, and instrumentation projects across diverse industries — not just simulations or documentation.</p>
-      </div>
-      <div class="rounded-3xl border border-slate-200 bg-white p-6">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#ac0505">
-          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <h3 class="font-extrabold text-slate-900 mb-2">Grow Fast</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Work alongside experienced engineers in a lean team where your contributions are visible and your growth is accelerated.</p>
-      </div>
-      <div class="rounded-3xl border border-slate-200 bg-white p-6">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 bg-slate-800">
-          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3 class="font-extrabold text-slate-900 mb-2">Diverse Projects</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">From offshore rigs to food & beverage plants to water utilities — no two projects are the same at Watchdog.</p>
-      </div>
-    </div>
-
-    <!-- Open Positions -->
-    <div class="mt-14">
-      <h3 class="text-xl font-extrabold tracking-tight mb-6">Open Positions</h3>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full" style="background:#0eb097">Engineering</span>
-            <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-          </div>
-          <h4 class="font-extrabold text-slate-900">PLC / SCADA Engineer</h4>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Program and commission PLC and SCADA systems. Experience with Siemens TIA Portal preferred.</p>
-          <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
-        </div>
-
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full" style="background:#ac0505">Engineering</span>
-            <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-          </div>
-          <h4 class="font-extrabold text-slate-900">Instrumentation Technician</h4>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Install, calibrate, and maintain field instruments including pressure, temperature, flow, and level transmitters.</p>
-          <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
-        </div>
-
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full bg-slate-700">Engineering</span>
-            <span class="text-xs text-slate-400 font-semibold">Full-time</span>
-          </div>
-          <h4 class="font-extrabold text-slate-900">Electrical Engineer</h4>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Design and assemble industrial control panels. Knowledge of wiring, protection devices, and panel layout required.</p>
-          <div class="text-xs text-slate-400">📍 Lapu-Lapu City, Cebu</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- How to Apply -->
-    <div class="mt-14 rounded-3xl bg-slate-950 text-white p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-      <div>
-        <h3 class="text-xl font-extrabold mb-2">Ready to Apply?</h3>
-        <p class="text-slate-400 text-sm max-w-xl">Send your resume and a brief introduction to our HR team. Tell us which position you're applying for and why you'd be a great fit at Watchdog.</p>
-        <div class="mt-3 text-sm text-slate-300">
-          <span class="font-semibold text-white">HR Email:</span>
-          <a href="mailto:info@watchdogautomation.com" class="underline hover:text-white ml-1">info@watchdogautomation.com</a>
-        </div>
-      </div>
-      <a href="#contact" class="shrink-0 inline-flex items-center justify-center rounded-xl bg-[#ac0505] px-6 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
-        Contact HR →
+    <div class="p-3 pt-0">
+      <a href="#contact" class="drawer-link flex w-full items-center justify-center rounded-md bg-[var(--brand-red)] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-red-dark)]">
+        Contact Us
       </a>
     </div>
+  </aside>
 
-  </div>
-</section>
+  <main id="main-content">
+    <section id="hero" class="relative overflow-hidden">
+      <video autoplay muted loop playsinline class="absolute inset-0 -z-10 h-full w-full object-cover" poster="./assets/images/WAHeroBGSuwayan.png" aria-hidden="true">
+        <source src="./assets/videos/WAHeroVideo2.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 -z-10 bg-black/55"></div>
 
-<!-- ═══════════════════ PROCESS ═══════════════════ -->
-<!-- <section id="process" class="">
-  <div class="mx-auto max-w-7xl px-4 py-14">
-    <h2 class="text-3xl font-extrabold tracking-tight">How We Work</h2>
-    <p class="mt-3 text-slate-700 max-w-2xl">
-      Predictable delivery beats "debugging in production." We favor clear scope, testable outputs, and clean handover.
-    </p>
-    <div class="mt-10 grid gap-6 lg:grid-cols-4">
-      <div class="rounded-3xl border border-slate-200 p-6">
-        <div class="text-sm font-bold text-emerald-700">01 • Discovery</div>
-        <p class="mt-2 text-slate-700">Review I/O, drawings, network, constraints, and acceptance criteria.</p>
-      </div>
-      <div class="rounded-3xl border border-slate-200 p-6">
-        <div class="text-sm font-bold text-sky-700">02 • Design</div>
-        <p class="mt-2 text-slate-700">Cause & effect, alarm philosophy, screen list, test plan.</p>
-      </div>
-      <div class="rounded-3xl border border-slate-200 p-6">
-        <div class="text-sm font-bold text-slate-700">03 • Build</div>
-        <p class="mt-2 text-slate-700">Implementation with version control and internal reviews.</p>
-      </div>
-      <div class="rounded-3xl border border-slate-200 p-6">
-        <div class="text-sm font-bold text-slate-700">04 • Validate</div>
-        <p class="mt-2 text-slate-700">FAT/SAT support, punchlist closure, turnover package.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
+      <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+        <div class="mx-auto max-w-4xl text-center">
+          <h1 class="text-center text-4xl font-extrabold italic leading-tight text-white lg:text-6xl">
+            You imagine, We integrate.
+          </h1>
 
-<!-- ═══════════════════ CONTACT ═══════════════════ -->
-<section id="contact" class="bg-slate-950 text-white">
-  <div class="mx-auto max-w-7xl px-4 py-14">
-    <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+          <p class="mx-auto mt-6 text-center text-lg font-bold text-white">
+            Engineering Precision in Industrial Automation
+          </p>
 
-      <!-- LEFT COLUMN: Info + Map -->
-      <div class="lg:col-span-6">
-        <h2 class="text-3xl font-extrabold tracking-tight">Talk to us about your automation scope.</h2>
-        <p class="mt-3 text-slate-300 max-w-2xl">
-          Reach out for projects, careers, or general inquiries. We'll reply with clarifying questions and next steps.
-        </p>
-        <div class="mt-6 grid gap-3 text-sm text-slate-300">
-          <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogautomation.com">info@watchdogautomation.com</a></div>
-          <div><span class="font-semibold text-white">Phone No.:</span> <a class="underline hover:text-white" href="tel:+639178883003">+63 917 888 3003</a></div>
-          <div><span class="font-semibold text-white">Address:</span> Bldg. 2, Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015</div>
-        </div>
-        <!-- Google Maps -->
-        <div class="mt-6 rounded-2xl overflow-hidden border border-slate-700 w-full">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph"
-            width="100%"
-            height="280"
-            style="border:0; display:block; width:100%;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-      <!-- END LEFT COLUMN -->
-
-      <!-- RIGHT COLUMN: Contact Form -->
-      <div class="lg:col-span-6">
-        <div class="rounded-3xl bg-white text-slate-900 p-6">
-          <div class="font-extrabold text-xl">Contact Us</div>
-          <p class="mt-1 text-sm text-slate-600">Reach out to us!</p>
-          <form id="contactForm" class="mt-5 grid gap-3">
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Name</span>
-              <input id="from_name" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" required />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Email</span>
-              <input type="email" id="from_email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" required />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Type of Inquiry</span>
-              <select id="inquiry_type" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900 bg-white text-slate-900" required>
-                <option value="" disabled selected>Select inquiry type…</option> 
-                <option value="Consultation">Consultation</option>
-                <option value="JobApplication">Internship/Job Application</option>
-                <option value="Sales">Sales & Marketing</option>
-                
-              </select>
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-semibold">Message</span>
-              <textarea rows="4" id="message" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..." required></textarea>
-            </label>
-            <button id="submitBtn" class="mt-2 rounded-xl bg-[#0eb097] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0a6b5e] transition-colors" type="button">
-              Send Message
-            </button>
-            <div id="formStatus" class="text-xs text-center"></div>
-          </form>
-        </div>
-      </div>
-      <!-- END RIGHT COLUMN -->
-
-    </div>
-    <!-- END GRID -->
-  </div>
-  <!-- END CONTAINER -->
-</section>
-<!-- END CONTACT SECTION -->
-
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-<footer class="bg-slate-950 text-slate-300">
-  <div class="mx-auto max-w-7xl px-4 py-14">
-
-    <!-- Footer Nav Columns -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
-
-      <!-- Col 1: PLC & SCADA -->
-      <div>
-        <h4 class="text-white font-extrabold mb-4">PLC & SCADA Engineering</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#contact" class="hover:text-white">Overview</a></li>
-          <li><a href="#contact" class="hover:text-white">S7-1200 & S7-1500</a></li>
-          <li><a href="#contact" class="hover:text-white">ET200SP</a></li>
-          <li><a href="#contact" class="hover:text-white">WinCC & Panel HMIs</a></li>
-          <li><a href="#contact" class="hover:text-white">Typical Deliverables</a></li>
-          <li><a href="#contact" class="hover:text-white">Inquire</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 2: VSD Solutions -->
-      <div>
-        <h4 class="text-white font-extrabold mb-4">Variable Speed Drive Solutions</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#contact" class="hover:text-white">Overview</a></li>
-          <li><a href="#contact" class="hover:text-white">Danfoss VLT & iC7</a></li>
-          <li><a href="#contact" class="hover:text-white">Siemens S120</a></li>
-          <li><a href="#contact" class="hover:text-white">Retrofit Services</a></li>
-          <li><a href="#contact" class="hover:text-white">Commissioning</a></li>
-          <li><a href="#contact" class="hover:text-white">Inquire</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Offshore -->
-      <div>
-        <h4 class="text-white font-extrabold mb-4">Offshore & Rig Modernization</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#contact" class="hover:text-white">Overview</a></li>
-          <li><a href="#contact" class="hover:text-white">S7-300 to S7-1500 Migration</a></li>
-          <li><a href="#contact" class="hover:text-white">ET200B to ET200SP</a></li>
-          <li><a href="#contact" class="hover:text-white">PLC Replacement Programs</a></li>
-          <li><a href="#contact" class="hover:text-white">Deployment Methodology</a></li>
-          <li><a href="#contact" class="hover:text-white">Inquire</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Company -->
-      <div>
-        <h4 class="text-white font-extrabold mb-4">Company</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#industries" class="hover:text-white">About Us</a></li>
-          <li><a href="#services" class="hover:text-white">Projects</a></li>
-          <li><a href="#partnerships" class="hover:text-white">Careers</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 5: Contact -->
-      <div>
-        <h4 class="text-white font-extrabold mb-4">Contact Us</h4>
-        <ul class="space-y-2 text-sm">
-          <li class="text-slate-400">Building 2, Paseo De Amores, Gun-ob,</li>
-          <li class="text-slate-400">Lapu-Lapu City, Cebu, Philippines</li>
-          <li><a href="tel:+639178883003" class="hover:text-white">+63 917 888 3003</a></li>
-          <li><a href="mailto:info@watchdogautomation.com" class="hover:text-white">info@watchdogautomation.com</a></li>
-          <li class="pt-2">
-            <a href="#contact" class="inline-block rounded-xl bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
-              Get in Touch
+          <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+              Request Consultation
             </a>
-          </li>
-          <!-- Social Media -->
-          <li class="pt-2">
-            <div class="flex gap-3">
-              <!-- Facebook -->
-              <a href="https://www.facebook.com/watchdogautomation" target="_blank" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-800 hover:bg-[#1877F2] transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                </svg>
-              </a>
-              <!-- YouTube -->
-              <a href="https://www.youtube.com/@plcsystemstechnikinc.7793" target="_blank" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-800 hover:bg-[#FF0000] transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
-                </svg>
-              </a>
-              <!-- LinkedIn -->
-              <a href="https://www.linkedin.com/company/watchdogautomation/" target="_blank" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-800 hover:bg-[#0A66C2] transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-              </a>
+            <a href="#projects" class="inline-flex items-center justify-center rounded-xl bg-[var(--brand-red)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--brand-red-dark)]">
+              View Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-14">
+        <div class="max-w-3xl">
+          <h2 class="section-heading">Industrial automation built for field conditions.</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">
+            Watchdog Automation delivers PLC programming, HMI and SCADA integration, instrumentation, panel modernization, commissioning support, and industrial control solutions for utilities, manufacturing, and facility operations.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6">
+            <h3 class="font-extrabold text-slate-900">PLC &amp; SCADA Engineering</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Design, programming, migration, and integration of PLC and SCADA systems for real-time monitoring, diagnostics, and control.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6">
+            <h3 class="font-extrabold text-slate-900">Instrumentation &amp; Commissioning</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Installation support, loop checking, calibration, signal verification, and structured commissioning for field-ready deployment.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6">
+            <h3 class="font-extrabold text-slate-900">Retrofit &amp; Modernization</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Upgrade of legacy control systems, control panels, drives, and interfaces to current industrial platforms with maintainable handover.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partnerships" class="overflow-hidden bg-white" aria-label="Partners">
+      <div class="relative w-full overflow-hidden py-16" style="mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);">
+        <div class="wa-marquee-track flex items-center gap-16">
+          <img src="./assets/images/WAPartners.png" alt="Partner brands and technology providers" class="h-20 w-auto flex-shrink-0 object-contain" />
+          <img src="./assets/images/WAPartners.png" alt="" aria-hidden="true" class="h-20 w-auto flex-shrink-0 object-contain" />
+          <img src="./assets/images/WAPartners.png" alt="" aria-hidden="true" class="h-20 w-auto flex-shrink-0 object-contain" />
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="relative bg-cover bg-center text-white" style="background-image: url('./assets/images/WABackgroundBR.png');">
+      <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+
+      <div class="relative mx-auto max-w-7xl px-4 py-16">
+        <div class="max-w-2xl">
+          <h2 class="section-heading text-white">Our Projects</h2>
+          <p class="mt-3 text-white/80">Real-world automation projects delivered across power, manufacturing, and industrial facilities.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="./projects/project1.html" class="project-card no-underline text-inherit">
+            <img src="./assets/images/ProjectOne.jpg" alt="Pilipinas Water Resources project" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-card-img-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0eb097" stroke-width="1.5" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              </svg>
             </div>
-          </li>
-        </ul>
+            <div class="card-accent-line" style="background: var(--brand-teal);"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: var(--brand-teal);">Water Quality Automation</span>
+              <div class="project-card-title">Pilipinas Water Resources, Inc.</div>
+              <p class="project-card-desc">Supply, engineering, installation, testing, and commissioning of a complete water quality analysis system for turbidity, residual chlorine, conductivity, pH, pressure, and flow.</p>
+            </div>
+          </a>
+
+          <a href="./projects/project2.html" class="project-card no-underline text-inherit">
+            <img src="./assets/images/DePal.JPG" alt="DEPAL PLC upgrade project" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-card-img-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ac0505" stroke-width="1.5" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <div class="card-accent-line" style="background: var(--brand-red);"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: var(--brand-red);">PLC Upgrade</span>
+              <div class="project-card-title">DEPAL PLC Upgrade from S7-300 to S7-1500</div>
+              <p class="project-card-desc">Migration of the existing Siemens S7-300 control system to S7-1500, including program conversion, hardware reconfiguration, communications validation, and commissioning support.</p>
+            </div>
+          </a>
+
+          <a href="./projects/project3.html" class="project-card no-underline text-inherit">
+            <img src="./assets/images/PLCUpgrade.jpeg" alt="Ginebra San Miguel PLC migration project" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-card-img-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#3BC448" stroke-width="1.5" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="card-accent-line" style="background: #3BC448;"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #3BC448;">PLC Migration</span>
+              <div class="project-card-title">S7-300 to S7-1500 Migration at Ginebra San Miguel Mandaue Plant</div>
+              <p class="project-card-desc">Upgrade of a legacy Siemens S7-300 automation platform to S7-1500, including hardware refresh, field compatibility checks, updated diagnostics, and maintainability improvements.</p>
+            </div>
+          </a>
+
+          <a href="./projects/project4.html" class="project-card no-underline text-inherit">
+            <img src="./assets/images/PLCUpgrade.jpeg" alt="BMS integration project" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-card-img-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#D447FF" stroke-width="1.5" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="card-accent-line" style="background: #D447FF;"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #D447FF;">BMS Integration</span>
+              <div class="project-card-title">Chiller and Pump Integration to Building Management System</div>
+              <p class="project-card-desc">Integration of chillers, pumps, and cooling tower controls into an existing building management system through PLC interface work, signal checks, configuration, and commissioning.</p>
+            </div>
+          </a>
+
+          <a href="./projects/project5.html" class="project-card no-underline text-inherit">
+            <img src="./assets/images/PLCUpgrade.jpeg" alt="Control panel retrofit project" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-card-img-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#FF7B47" stroke-width="1.5" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="card-accent-line" style="background: #FF7B47;"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #FF7B47;">Control Retrofit</span>
+              <div class="project-card-title">Control Panel Retrofit with New PLC System</div>
+              <p class="project-card-desc">Replacement of an obsolete control panel with a new PLC-based system including wiring, I/O modules, power supply components, HMI interface, testing, and commissioning.</p>
+            </div>
+          </a>
+
+          <a href="./projects/project6.html" class="project-card no-underline text-inherit">
+            <img src="./assets/images/PLCUpgrade.jpeg" alt="SCADA integration project" class="project-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="project-card-img-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#4797FF" stroke-width="1.5" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="card-accent-line" style="background: #4797FF;"></div>
+            <div class="project-card-body">
+              <span class="project-card-tag" style="background: #4797FF;">SCADA Integration</span>
+              <div class="project-card-title">PLC and SCADA Integration for Plant Monitoring</div>
+              <p class="project-card-desc">Integration of multiple PLC systems into a SCADA network for centralized monitoring, alarms, trends, communications setup, and operator interface development.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="careers" class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-14">
+        <div class="max-w-2xl">
+          <h2 class="section-heading">Careers at Watchdog Automation</h2>
+          <p class="mt-3 text-lg text-slate-600">
+            We are looking for engineers who take pride in their craft. Join a team that builds real automation solutions for real industrial challenges.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-3">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl" style="background: var(--brand-teal);">
+              <svg class="h-5 w-5 text-white" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/>
+              </svg>
+            </div>
+            <h3 class="mb-2 font-extrabold text-slate-900">Hands-On Work</h3>
+            <p class="text-sm leading-relaxed text-slate-600">Work on real PLC, SCADA, and instrumentation projects across diverse industries, not only simulations or documentation.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl" style="background: var(--brand-red);">
+              <svg class="h-5 w-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="mb-2 font-extrabold text-slate-900">Grow Fast</h3>
+            <p class="text-sm leading-relaxed text-slate-600">Work alongside experienced engineers in a lean team where your contribution is visible and your learning curve is steep.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800">
+              <svg class="h-5 w-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3 class="mb-2 font-extrabold text-slate-900">Diverse Projects</h3>
+            <p class="text-sm leading-relaxed text-slate-600">From offshore rigs to beverage plants to water utilities, the work spans multiple industries and environments.</p>
+          </div>
+        </div>
+
+        <div class="mt-14">
+          <h3 class="mb-6 text-xl font-extrabold tracking-tight">Open Positions</h3>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-white" style="background: var(--brand-teal);">Engineering</span>
+                <span class="text-xs font-semibold text-slate-400">Full-time</span>
+              </div>
+              <h4 class="font-extrabold text-slate-900">PLC / SCADA Engineer</h4>
+              <p class="flex-1 text-sm leading-relaxed text-slate-600">Program and commission PLC and SCADA systems. Experience with Siemens TIA Portal preferred.</p>
+              <div class="text-xs text-slate-400">Lapu-Lapu City, Cebu</div>
+            </div>
+
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-white" style="background: var(--brand-red);">Engineering</span>
+                <span class="text-xs font-semibold text-slate-400">Full-time</span>
+              </div>
+              <h4 class="font-extrabold text-slate-900">Instrumentation Technician</h4>
+              <p class="flex-1 text-sm leading-relaxed text-slate-600">Install, calibrate, and maintain field instruments including pressure, temperature, flow, and level transmitters.</p>
+              <div class="text-xs text-slate-400">Lapu-Lapu City, Cebu</div>
+            </div>
+
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-slate-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Engineering</span>
+                <span class="text-xs font-semibold text-slate-400">Full-time</span>
+              </div>
+              <h4 class="font-extrabold text-slate-900">Electrical Engineer</h4>
+              <p class="flex-1 text-sm leading-relaxed text-slate-600">Design and assemble industrial control panels. Knowledge of wiring, protection devices, and panel layout is required.</p>
+              <div class="text-xs text-slate-400">Lapu-Lapu City, Cebu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-14 flex flex-col items-start justify-between gap-6 rounded-3xl bg-slate-950 p-8 text-white sm:flex-row sm:items-center">
+          <div>
+            <h3 class="mb-2 text-xl font-extrabold">Ready to Apply?</h3>
+            <p class="max-w-xl text-sm text-slate-400">Send your resume and a brief introduction to our HR team. Tell us which position you are applying for and why you would be a strong fit at Watchdog.</p>
+            <div class="mt-3 text-sm text-slate-300">
+              <span class="font-semibold text-white">HR Email:</span>
+              <a href="mailto:info@watchdogautomation.com" class="ml-1 underline hover:text-white">info@watchdogautomation.com</a>
+            </div>
+          </div>
+          <a href="#contact" class="inline-flex shrink-0 items-center justify-center rounded-xl bg-[var(--brand-red)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-red-dark)]">
+            Contact HR
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="mx-auto max-w-7xl px-4 py-14">
+        <h2 class="section-heading">How We Work</h2>
+        <p class="mt-3 max-w-2xl text-slate-700">Predictable delivery beats debugging in production. We favor clear scope, testable outputs, and clean handover.</p>
+        <div class="mt-10 grid gap-6 lg:grid-cols-4">
+          <div class="rounded-3xl border border-slate-200 p-6">
+            <div class="text-sm font-bold text-emerald-700">01 • Discovery</div>
+            <p class="mt-2 text-slate-700">Review I/O, drawings, network architecture, constraints, and acceptance criteria.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 p-6">
+            <div class="text-sm font-bold text-sky-700">02 • Design</div>
+            <p class="mt-2 text-slate-700">Define cause and effect, alarm philosophy, screen list, and validation plan.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 p-6">
+            <div class="text-sm font-bold text-slate-700">03 • Build</div>
+            <p class="mt-2 text-slate-700">Implement with version control, technical review, and structured test checkpoints.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 p-6">
+            <div class="text-sm font-bold text-slate-700">04 • Validate</div>
+            <p class="mt-2 text-slate-700">Support FAT and SAT, close punch items, and issue turnover documentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-slate-950 text-white">
+      <div class="mx-auto max-w-7xl px-4 py-14">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+          <div class="lg:col-span-6">
+            <h2 class="section-heading text-white">Talk to us about your automation scope.</h2>
+            <p class="mt-3 max-w-2xl text-slate-300">Reach out for projects, careers, or general inquiries. We will reply with clarifying questions and next steps.</p>
+            <div class="mt-6 grid gap-3 text-sm text-slate-300">
+              <div><span class="font-semibold text-white">Email:</span> <a class="underline hover:text-white" href="mailto:info@watchdogautomation.com">info@watchdogautomation.com</a></div>
+              <div><span class="font-semibold text-white">Phone:</span> <a class="underline hover:text-white" href="tel:+639178883003">+63 917 888 3003</a></div>
+              <div><span class="font-semibold text-white">Address:</span> Bldg. 2, Paseo De Amores, Gun-ob, Lapu-Lapu City, Philippines, 6015</div>
+            </div>
+
+            <div class="mt-6 w-full overflow-hidden rounded-2xl border border-slate-700">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.68200162933715!2d123.95325129095396!3d10.305342501744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999b74a732dc3%3A0x20d581859d0640c3!2sWatchdog%20Automation%20Sales%20%26%20Services!5e0!3m2!1sen!2sph!4v1772693194723!5m2!1sen!2sph"
+                width="100%"
+                height="280"
+                style="border:0; display:block; width:100%;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Watchdog Automation location map"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="rounded-3xl bg-white p-6 text-slate-900">
+              <h3 class="text-xl font-extrabold">Contact Us</h3>
+              <p class="mt-1 text-sm text-slate-600">Reach out to us.</p>
+              <form id="contactForm" class="mt-5 grid gap-3">
+                <label class="grid gap-1">
+                  <span class="text-sm font-semibold">Name</span>
+                  <input id="from_name" name="from_name" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Your name" autocomplete="name" required />
+                </label>
+                <label class="grid gap-1">
+                  <span class="text-sm font-semibold">Email</span>
+                  <input type="email" id="from_email" name="from_email" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="you@company.com" autocomplete="email" required />
+                </label>
+                <label class="grid gap-1">
+                  <span class="text-sm font-semibold">Type of Inquiry</span>
+                  <select id="inquiry_type" name="inquiry_type" class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900" required>
+                    <option value="" disabled selected>Select inquiry type…</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="JobApplication">Internship / Job Application</option>
+                    <option value="Sales">Sales &amp; Marketing</option>
+                  </select>
+                </label>
+                <label class="grid gap-1">
+                  <span class="text-sm font-semibold">Message</span>
+                  <textarea id="message" name="message" rows="4" class="rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-900" placeholder="Brief scope: PLC brand, I/O count, issue description, timeline..." required></textarea>
+                </label>
+                <button id="submitBtn" class="mt-2 rounded-xl bg-[var(--brand-teal)] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-teal-dark)] disabled:cursor-not-allowed disabled:opacity-70" type="submit">
+                  Send Message
+                </button>
+                <div id="formStatus" class="text-center text-xs" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-950 text-slate-300">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <div class="mb-12 grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
+        <div>
+          <h4 class="mb-4 font-extrabold text-white">PLC &amp; SCADA Engineering</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-white">Overview</a></li>
+            <li><a href="#about" class="hover:text-white">S7-1200 &amp; S7-1500</a></li>
+            <li><a href="#about" class="hover:text-white">ET200SP</a></li>
+            <li><a href="#about" class="hover:text-white">WinCC &amp; Panel HMIs</a></li>
+            <li><a href="#about" class="hover:text-white">Typical Deliverables</a></li>
+            <li><a href="#contact" class="hover:text-white">Inquire</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-4 font-extrabold text-white">Variable Speed Drive Solutions</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-white">Overview</a></li>
+            <li><a href="#about" class="hover:text-white">Danfoss VLT &amp; iC7</a></li>
+            <li><a href="#about" class="hover:text-white">Siemens S120</a></li>
+            <li><a href="#about" class="hover:text-white">Retrofit Services</a></li>
+            <li><a href="#about" class="hover:text-white">Commissioning</a></li>
+            <li><a href="#contact" class="hover:text-white">Inquire</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-4 font-extrabold text-white">Offshore &amp; Rig Modernization</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-white">Overview</a></li>
+            <li><a href="#projects" class="hover:text-white">S7-300 to S7-1500 Migration</a></li>
+            <li><a href="#about" class="hover:text-white">ET200B to ET200SP</a></li>
+            <li><a href="#about" class="hover:text-white">PLC Replacement Programs</a></li>
+            <li><a href="#process" class="hover:text-white">Deployment Methodology</a></li>
+            <li><a href="#contact" class="hover:text-white">Inquire</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-4 font-extrabold text-white">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#hero" class="hover:text-white">Home</a></li>
+            <li><a href="#about" class="hover:text-white">About Us</a></li>
+            <li><a href="#projects" class="hover:text-white">Projects</a></li>
+            <li><a href="#partnerships" class="hover:text-white">Partnerships</a></li>
+            <li><a href="#process" class="hover:text-white">How We Work</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-4 font-extrabold text-white">Contact Us</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="text-slate-400">Building 2, Paseo De Amores, Gun-ob,</li>
+            <li class="text-slate-400">Lapu-Lapu City, Cebu, Philippines</li>
+            <li><a href="tel:+639178883003" class="hover:text-white">+63 917 888 3003</a></li>
+            <li><a href="mailto:info@watchdogautomation.com" class="hover:text-white">info@watchdogautomation.com</a></li>
+            <li class="pt-2">
+              <a href="#contact" class="inline-block rounded-xl bg-[var(--brand-red)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-red-dark)]">
+                Get in Touch
+              </a>
+            </li>
+            <li class="pt-2">
+              <div class="flex gap-3">
+                <a href="https://www.facebook.com/watchdogautomation" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 transition-colors hover:bg-[#1877F2]" aria-label="Watchdog Automation on Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com/@plcsystemstechnikinc.7793" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 transition-colors hover:bg-[#FF0000]" aria-label="Watchdog Automation on YouTube">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/watchdogautomation/" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 transition-colors hover:bg-[#0A66C2]" aria-label="Watchdog Automation on LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                    <circle cx="4" cy="4" r="2"/>
+                  </svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
 
+      <div class="flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row">
+        <div>© <span id="year"></span> Watchdog Automation OPC. All rights reserved.</div>
+        <div class="flex gap-6">
+          <a href="#projects" class="hover:text-white">Projects</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- Bottom bar -->
-<div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
-  <div>© <span id="year"></span> Watchdog Automation OPC. All rights reserved.</div>
-  <div class="flex gap-6">
-    <a href="#projects" class="hover:text-white">Projects</a>
-    <a href="#contact" class="hover:text-white">Contact</a>
-  </div>
-</div>
+  <script>
+    (() => {
+      const body = document.body;
+      const yearEl = document.getElementById('year');
+      const splash = document.getElementById('splash');
+      const bootEl = document.getElementById('waBootText');
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const closeBtn = document.getElementById('drawerCloseBtn');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('formStatus');
+      const submitBtn = document.getElementById('submitBtn');
 
-<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
 
-(function () {
-  const splash = document.getElementById("splash");
-  if (!splash) return;
+      function openDrawer() {
+        if (!drawer || !overlay || !menuBtn) return;
+        drawer.classList.remove('-translate-x-full');
+        drawer.setAttribute('aria-hidden', 'false');
+        overlay.classList.remove('hidden');
+        body.style.overflow = 'hidden';
+        menuBtn.setAttribute('aria-expanded', 'true');
+        closeBtn?.focus();
+      }
 
-  // If already seen this session, skip splash immediately
-  if (sessionStorage.getItem('splashSeen')) {
-    splash.remove();
-    return;
-  }
-  sessionStorage.setItem('splashSeen', 'true');
+      function closeDrawer() {
+        if (!drawer || !overlay || !menuBtn) return;
+        drawer.classList.add('-translate-x-full');
+        drawer.setAttribute('aria-hidden', 'true');
+        overlay.classList.add('hidden');
+        body.style.overflow = '';
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
 
-  const bootEl = document.getElementById("waBootText");
-  const steps = [
-    "Initializing CPU & memory map…",
-    "Scanning digital inputs (DI)…",
-    "Energizing output checks (DO)…",
-    "Loading analog scaling (AI/AO)…",
-    "Establishing OPC/SCADA handshake…",
-    "Verifying interlocks & permissives…",
-    "Commissioning-ready state confirmed."
-  ];
+      menuBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', () => {
+        closeDrawer();
+        menuBtn?.focus();
+      });
+      overlay?.addEventListener('click', () => {
+        closeDrawer();
+        menuBtn?.focus();
+      });
 
-  let idx = 0;
-  const bootTimer = setInterval(() => {
-    idx = Math.min(idx + 1, steps.length - 1);
-    if (bootEl) bootEl.textContent = steps[idx];
-  }, 500);
+      drawer?.querySelectorAll('.drawer-link').forEach((link) => {
+        link.addEventListener('click', closeDrawer);
+      });
 
-  if (bootEl) bootEl.textContent = steps[0];
+      drawer?.querySelectorAll('.drawer-acc-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const panel = btn.nextElementSibling;
+          const chevron = btn.querySelector('.acc-chevron');
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          if (!panel) return;
+          panel.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', String(!isExpanded));
+          if (chevron) {
+            chevron.style.transform = isExpanded ? '' : 'rotate(180deg)';
+          }
+        });
+      });
 
-  setTimeout(() => {
-    clearInterval(bootTimer);
-    splash.style.transition = "opacity 500ms ease";
-    splash.style.opacity = "0";
-    setTimeout(() => { if (splash.parentNode) splash.remove(); }, 520);
-  }, 4000);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeDrawer();
+        }
+      });
 
-  window.addEventListener("pageshow", (e) => {
-    if (e.persisted) window.location.reload();
-  });
-})();
+      if (splash) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('splashSeen')) {
+          splash.remove();
+        } else {
+          sessionStorage.setItem('splashSeen', 'true');
+          const steps = [
+            'Initializing CPU and memory map…',
+            'Scanning digital inputs (DI)…',
+            'Energizing output checks (DO)…',
+            'Loading analog scaling (AI/AO)…',
+            'Establishing OPC and SCADA handshake…',
+            'Verifying interlocks and permissives…',
+            'Commissioning-ready state confirmed.'
+          ];
 
-   document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  });
-  
-</script>
+          let index = 0;
+          if (bootEl) bootEl.textContent = steps[0];
+
+          const bootTimer = window.setInterval(() => {
+            index = Math.min(index + 1, steps.length - 1);
+            if (bootEl) bootEl.textContent = steps[index];
+          }, 500);
+
+          window.setTimeout(() => {
+            window.clearInterval(bootTimer);
+            splash.style.transition = 'opacity 500ms ease';
+            splash.style.opacity = '0';
+            window.setTimeout(() => splash.remove(), 520);
+          }, 4000);
+        }
+      }
+
+      form?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!statusEl || !submitBtn) return;
+
+        submitBtn.disabled = true;
+        statusEl.className = 'text-xs text-center text-amber-600';
+        statusEl.textContent = 'Form handler not connected yet. Wire this form to your backend or email service provider.';
+
+        window.setTimeout(() => {
+          submitBtn.disabled = false;
+        }, 400);
+      });
+    })();
+  </script>
 </body>
 </html>
