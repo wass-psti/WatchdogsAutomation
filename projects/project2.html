@@ -3,72 +3,270 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Name | Watchdog Automation</title>
+  <title>DEPAL PLC Upgrading | Watchdog Automation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>html, body { font-family: 'Manrope', sans-serif; }</style>
+  <style>
+    html, body { font-family: 'Manrope', sans-serif; overflow-x: hidden; }
+    .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+    .stat-card { border-left: 3px solid #ac0505; background: #f8fafc; border-radius: 0 1rem 1rem 0; }
+    .section-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #ac0505; }
+    .group:hover .nav-arrow { transform: rotate(180deg); }
+  </style>
 </head>
 <body class="bg-white text-slate-900">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black px-6 py-4 flex items-center justify-between">
-    <a href="../index.html" class="flex items-center gap-2">
-      <img src="../assets/images/WAWithoutText2.png" class="h-10 w-auto" />
-      <img src="../assets/images/WANeutral2.png" class="h-10 w-auto" />
-    </a>
-    <a href="../index.html" class="text-white text-sm font-semibold hover:text-slate-300">← Back to Projects</a>
-  </header>
-
-  <!-- Hero Image -->
-  <img src="../assets/images/ProjectOne.jpg" class="w-full h-80 object-cover" />
-
-  <!-- Content -->
-  <div class="mx-auto max-w-4xl px-6 py-12">
-
-    <!-- Tag + Title -->
-    <span class="inline-block bg-[#0eb097] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-      Automating Water Source
-    </span>
-    <h1 class="text-4xl font-extrabold mb-4">Pilipinas Water Resources, Inc</h1>
-    <p class="text-slate-600 text-lg leading-relaxed">
-      Supply, engineering, installation, testing and commissioning of a complete 
-      Water Quality Analysis System for turbidity, residual chlorine, conductivity, 
-      pH, pressure and flow.
-    </p>
-
-    <!-- Details Grid -->
-    <div class="mt-10 grid gap-6 sm:grid-cols-3">
-      <div class="rounded-2xl border border-slate-200 p-6">
-        <div class="text-xs font-bold text-slate-500 uppercase mb-1">Client</div>
-        <div class="font-semibold">Pilipinas Water Resources, Inc</div>
-      </div>
-      <div class="rounded-2xl border border-slate-200 p-6">
-        <div class="text-xs font-bold text-slate-500 uppercase mb-1">Category</div>
-        <div class="font-semibold">Automating Water Source</div>
-      </div>
-      <div class="rounded-2xl border border-slate-200 p-6">
-        <div class="text-xs font-bold text-slate-500 uppercase mb-1">Location</div>
-        <div class="font-semibold">Philippines</div>
-      </div>
-    </div>
-
-    <!-- Scope / Description -->
-    <div class="mt-10">
-      <h2 class="text-2xl font-extrabold mb-4">Project Scope</h2>
-      <p class="text-slate-600 leading-relaxed">
-        Write a more detailed description of the project here. What was the challenge, 
-        what was delivered, and what was the outcome.
-      </p>
-    </div>
-
-    <!-- Back Button -->
-    <div class="mt-12">
-      <a href="../index.html#projects" class="inline-flex items-center justify-center rounded-xl bg-[#ac0505] px-6 py-3 text-sm font-semibold text-white hover:bg-[#8b0000]">
-        ← Back to All Projects
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="sticky top-0 z-50 bg-[#000000]">
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-1 mr-auto">
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-white" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a href="../index.html" class="flex items-center shrink-0">
+        <img src="../assets/images/WAWithoutText2.png?v=1" alt="Watchdog Logo" class="h-8 md:h-12 w-auto object-contain"/>
+        <img src="../assets/images/WANeutral2.png?v=1" alt="Watchdog Text" class="h-8 md:h-12 w-auto object-contain"/>
       </a>
+    </div>
+    <nav class="hidden md:flex items-center gap-1 text-sm font-semibold">
+      <div class="relative group">
+        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
+          About Us
+          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
+        </button>
+        <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
+          <ul class="py-2">
+            <li><a href="../index.html#industries" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Story</a></li>
+            <li><a href="../index.html#process" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">How We Work</a></li>
+            <li><a href="../index.html#partnerships" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Our Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative group">
+        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
+          Services
+          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
+        </button>
+        <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
+          <ul class="py-2">
+            <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">PLC & SCADA Engineering</a></li>
+            <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Variable Speed Drive Solutions</a></li>
+            <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Offshore & Rig Modernization</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative group">
+        <button class="flex items-center gap-1 px-4 py-2 text-white hover:text-slate-300">
+          Projects
+          <svg class="nav-arrow w-4 h-4 mt-0.5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>
+        </button>
+        <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="h-0.5 bg-[#ac0505] rounded-t-xl"></div>
+          <ul class="py-2">
+            <li><a href="../index.html#projects" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Featured Projects</a></li>
+            <li><a href="../index.html#services" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Case Studies</a></li>
+          </ul>
+        </div>
+      </div>
+      <a class="px-4 py-2 text-white hover:text-slate-300" href="../index.html#partnerships">Partners</a>
+    </nav>
+    <div class="flex justify-end">
+      <a href="../index.html#contact" class="hidden md:inline-flex items-center justify-center rounded-md bg-[#ac0505] px-4 py-2 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ MOBILE DRAWER OVERLAY ═══ -->
+<div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-[998] hidden md:hidden" aria-hidden="true"></div>
+
+<!-- ═══ MOBILE DRAWER ═══ -->
+<div id="mobileDrawer" class="fixed top-0 left-0 h-full w-72 bg-[#111] z-[999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <img src="../assets/images/WAWithoutText2.png?v=1" alt="Logo" class="h-8 w-auto"/>
+      <img src="../assets/images/WANeutral2.png?v=1" alt="Watchdog" class="h-8 w-auto"/>
+    </div>
+    <button id="drawerCloseBtn" class="text-white/60 hover:text-white p-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="flex-1 overflow-y-auto py-4 px-3">
+    <a href="../index.html" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="font-semibold text-sm">Home</span>
+    </a>
+    <div class="drawer-accordion">
+      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+        <div class="flex items-center gap-4">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span class="font-semibold text-sm">About Us</span>
+        </div>
+        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="drawer-acc-panel hidden pl-12 pb-1">
+        <a href="../index.html#industries" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Story</a>
+        <a href="../index.html#process" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">How We Work</a>
+        <a href="../index.html#partnerships" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Our Partners</a>
+      </div>
+    </div>
+    <div class="drawer-accordion">
+      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+        <div class="flex items-center gap-4">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span class="font-semibold text-sm">Services</span>
+        </div>
+        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="drawer-acc-panel hidden pl-12 pb-1">
+        <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">PLC & SCADA Engineering</a>
+        <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Variable Speed Drive Solutions</a>
+        <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Offshore & Rig Modernization</a>
+      </div>
+    </div>
+    <div class="drawer-accordion">
+      <button class="drawer-acc-btn flex items-center justify-between w-full px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+        <div class="flex items-center gap-4">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+          <span class="font-semibold text-sm">Projects</span>
+        </div>
+        <svg class="acc-chevron w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="drawer-acc-panel hidden pl-12 pb-1">
+        <a href="../index.html#projects" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Featured Projects</a>
+        <a href="../index.html#services" class="drawer-link block py-2 text-sm text-white/60 hover:text-white">Case Studies</a>
+      </div>
+    </div>
+    <a href="../index.html#partnerships" class="drawer-link flex items-center gap-4 px-3 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors">
+      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="font-semibold text-sm">Partners</span>
+    </a>
+  </nav>
+  <a href="../index.html#contact" class="drawer-link flex items-center justify-center w-full rounded-md bg-[#ac0505] px-4 py-3 text-sm font-semibold text-white hover:bg-[#8b0000] transition-colors">
+    Contact Us
+  </a>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const closeBtn = document.getElementById('drawerCloseBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  function openDrawer() { drawer.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { drawer.classList.add('-translate-x-full'); overlay.classList.add('hidden'); document.body.style.overflow = ''; }
+  menuBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('.drawer-link').forEach(link => { link.addEventListener('click', closeDrawer); });
+  drawer.querySelectorAll('.drawer-acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling;
+      const chevron = btn.querySelector('.acc-chevron');
+      panel.classList.toggle('hidden');
+      chevron.style.transform = panel.classList.contains('hidden') ? '' : 'rotate(180deg)';
+    });
+  });
+</script>
+
+
+<!-- HERO -->
+<div class="relative h-[420px] overflow-hidden">
+  <img src="../assets/images/DePal.JPG" class="w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 px-6 pb-10 max-w-7xl mx-auto">
+    <span class="fade-up inline-block text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background:#ac0505">PLC Upgrading</span>
+    <h1 class="fade-up delay-1 text-4xl md:text-5xl font-extrabold text-white leading-tight">DEPAL PLC Upgrading<br/>S7-300 to S7-1500</h1>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="mx-auto max-w-7xl px-6 py-14 grid gap-12 lg:grid-cols-3">
+  <div class="lg:col-span-2 space-y-10">
+
+    <!-- Overview -->
+    <div class="fade-up delay-2">
+      <div class="section-label mb-3">Project Overview</div>
+      <p class="text-slate-600 text-lg leading-relaxed">This project involved upgrading the existing control system from the Siemens SIMATIC S7-300 PLC to the newer Siemens SIMATIC S7-1500 PLC platform, improving system performance, diagnostics, and long-term reliability.</p>
+    </div>
+
+    <!-- Background & Challenge -->
+    <div class="fade-up delay-2">
+      <div class="section-label mb-3">Background &amp; Challenge</div>
+      <p class="text-slate-600 leading-relaxed">The DEPAL facility was operating on an aging Siemens S7-300 PLC platform that was approaching end-of-life. Spare parts were becoming increasingly difficult to source, and the existing system lacked the advanced diagnostics and communication capabilities needed to support the facility's growing automation requirements. An upgrade was critical to ensure continued operational reliability and to position the system for future expansion.</p>
+    </div>
+
+    <!-- Technical Details -->
+    <div class="fade-up delay-3">
+      <div class="section-label mb-4">Technical Details</div>
+      <div class="rounded-2xl border border-slate-200 overflow-hidden">
+          <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0"><span class="text-xs font-bold uppercase tracking-wide shrink-0 w-36" style="color:#ac0505">Previous PLC</span><span class="text-slate-700 text-sm">Siemens SIMATIC S7-300</span></div>
+          <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0"><span class="text-xs font-bold uppercase tracking-wide shrink-0 w-36" style="color:#ac0505">New PLC</span><span class="text-slate-700 text-sm">Siemens SIMATIC S7-1500</span></div>
+          <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0"><span class="text-xs font-bold uppercase tracking-wide shrink-0 w-36" style="color:#ac0505">Software</span><span class="text-slate-700 text-sm">TIA Portal (STEP 7 to TIA Portal migration)</span></div>
+          <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0"><span class="text-xs font-bold uppercase tracking-wide shrink-0 w-36" style="color:#ac0505">Communication</span><span class="text-slate-700 text-sm">PROFINET industrial Ethernet</span></div>
+          <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0"><span class="text-xs font-bold uppercase tracking-wide shrink-0 w-36" style="color:#ac0505">I/O Modules</span><span class="text-slate-700 text-sm">Reconfigured and remapped to S7-1500 compatible modules</span></div>
+          <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0"><span class="text-xs font-bold uppercase tracking-wide shrink-0 w-36" style="color:#ac0505">Programming</span><span class="text-slate-700 text-sm">Converted and validated all existing ladder/function block logic</span></div>
+      </div>
+    </div>
+
+    <!-- Scope of Work -->
+    <div class="fade-up delay-3">
+      <div class="section-label mb-4">Scope of Work</div>
+      <div class="space-y-3">
+        <div class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background:#ac0505"></span><span class="text-slate-700">Migration of existing PLC program from S7-300 to S7-1500 platform</span></div>
+        <div class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background:#ac0505"></span><span class="text-slate-700">Reconfiguration of hardware and I/O modules</span></div>
+        <div class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background:#ac0505"></span><span class="text-slate-700">Ensuring proper system communication and network integration</span></div>
+        <div class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background:#ac0505"></span><span class="text-slate-700">Full functional testing and validation of migrated logic</span></div>
+        <div class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background:#ac0505"></span><span class="text-slate-700">Commissioning and handover with documentation package</span></div>
+      </div>
+    </div>
+
+    <!-- Key Deliverables -->
+    <div class="fade-up delay-4">
+      <div class="section-label mb-4">Key Deliverables</div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-4 pl-5" style="border-left:3px solid #ac0505;background:#f8fafc;border-radius:0 1rem 1rem 0"><div class="text-xs font-bold text-slate-500 uppercase mb-1">Previous Platform</div><div class="font-bold text-slate-800">Siemens SIMATIC S7-300</div></div>
+        <div class="p-4 pl-5" style="border-left:3px solid #ac0505;background:#f8fafc;border-radius:0 1rem 1rem 0"><div class="text-xs font-bold text-slate-500 uppercase mb-1">Upgraded Platform</div><div class="font-bold text-slate-800">Siemens SIMATIC S7-1500</div></div>
+        <div class="p-4 pl-5" style="border-left:3px solid #ac0505;background:#f8fafc;border-radius:0 1rem 1rem 0"><div class="text-xs font-bold text-slate-500 uppercase mb-1">Services</div><div class="font-bold text-slate-800">Program Migration, Hardware Config, Commissioning</div></div>
+        <div class="p-4 pl-5" style="border-left:3px solid #ac0505;background:#f8fafc;border-radius:0 1rem 1rem 0"><div class="text-xs font-bold text-slate-500 uppercase mb-1">Industry</div><div class="font-bold text-slate-800">Industrial Automation</div></div>
+      </div>
     </div>
 
   </div>
 
+  <!-- Sidebar -->
+  <div class="space-y-6">
+    <div class="rounded-2xl border border-slate-200 p-6 space-y-5">
+      <div class="section-label">Project Details</div>
+      <div><div class="text-xs font-bold text-slate-400 uppercase mb-1">Client</div><div class="font-semibold text-slate-800">DEPAL</div></div>
+      <div><div class="text-xs font-bold text-slate-400 uppercase mb-1">Category</div><div class="font-semibold text-slate-800">PLC Upgrading</div></div>
+      <div><div class="text-xs font-bold text-slate-400 uppercase mb-1">Technology</div><div class="font-semibold text-slate-800">Siemens S7-300 → S7-1500</div></div>
+      <div><div class="text-xs font-bold text-slate-400 uppercase mb-1">Location</div><div class="font-semibold text-slate-800">Philippines</div></div>
+      <div><div class="text-xs font-bold text-slate-400 uppercase mb-1">Status</div><span class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Completed</span></div>
+    </div>
+    <div class="rounded-2xl bg-slate-950 p-6 text-white">
+      <div class="text-sm font-bold mb-2">Have a similar project?</div>
+      <p class="text-slate-400 text-sm mb-4">We specialize in legacy PLC migrations with zero data loss.</p>
+      <a href="../index.html#contact" class="block text-center rounded-xl px-4 py-3 text-sm font-semibold text-white transition-colors" style="background:#ac0505">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<div class="mx-auto max-w-7xl px-6 pb-16">
+  <a href="../index.html" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back to Home
+  </a>
+</div>
+<footer class="bg-slate-950 text-slate-400 text-sm">
+  <div class="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div>© 2026 Watchdog Automation OPC. All rights reserved.</div>
+    <a href="../index.html#contact" class="text-white hover:text-slate-300">Get in Touch →</a>
+  </div>
+</footer>
 </body>
 </html>
