@@ -1147,9 +1147,7 @@
 
       <div class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
         <div class="max-w-4xl mx-auto text-center">
-          <h1
-            class="font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight"
-          >
+          <h1 class="hero-fade font-extrabold italic text-4xl lg:text-6xl text-white text-center leading-tight">
             You imagine, We integrate.
           </h1>
 
@@ -1159,7 +1157,7 @@
         class="w-full max-w-3xl h-auto"
       /> -->
 
-          <p class="mt-6 text-lg mx-auto text-white font-bold text-center">
+          <p class="hero-fade-delay mt-6 text-lg mx-auto text-white font-bold text-center">
             Engineering Precision in Industrial Automation
           </p>
 
@@ -1267,6 +1265,29 @@
     </section>
 
     <style>
+            /* ── Hero Fade-in ── */
+      .hero-fade {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      
+      .hero-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .hero-fade-delay {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+      }
+      
+      .hero-fade-delay.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
       .wa-marquee-track {
         width: max-content;
         animation: waMarquee 40s linear infinite;
