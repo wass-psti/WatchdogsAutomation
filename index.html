@@ -2125,6 +2125,20 @@
           });
         </script>
         <!-- FormSubmit script -->
+        
+        <!-- Fade-in script -->
+        <script>
+          // Hero fade-in — triggers on every page load / refresh
+          window.addEventListener("load", () => {
+            requestAnimationFrame(() => {
+              document.querySelectorAll(".hero-fade, .hero-fade-delay").forEach(el => {
+                el.classList.add("visible");
+              });
+            });
+          });
+        </script>
+        <!-- Fade-in script -->
+        
         <script>
           document.getElementById("year").textContent = new Date().getFullYear();
 
