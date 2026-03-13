@@ -226,8 +226,7 @@
 <!-- ═══════════════════ HERO IMAGE (full-width, no text overlay) ═══════════════════ -->
 <div class="mx-auto max-w-5xl px-4 sm:px-6 mb-10">
   <img
-    src="../assets/images/ProjectOne.jpg"
-    alt="Water Quality Analysis System"
+    src="../assets/images/ProjectTestThree.png"
     class="w-full rounded-xl object-cover"
     style="height: clamp(220px, 40vw, 480px);"
   />
@@ -244,7 +243,7 @@
       <div>
         <div class="section-label">Project Overview</div>
         <p class="text-slate-600 text-base leading-relaxed">
-          Supply, engineering, installation, testing, and commissioning of a complete Water Quality Analysis System for continuous real-time monitoring of turbidity, residual chlorine, conductivity, pH, pressure, and flow at Pilipinas Water Resources' facility.
+          This flagship project involved the complete reverse engineering and modernization of a large industrial feedmill automation system, replacing a proprietary European OEM control platform with a modern Siemens SIMATIC S7-1500 based architecture. The project included migration of the entire plant control logic, SCADA system, and production management software to a fully open and maintainable industrial automation platform. The upgrade improved system reliability, reduced operational risk, and provided long-term supportability using globally available automation technology.
         </p>
       </div>
 
@@ -252,7 +251,9 @@
       <div>
         <div class="section-label">Background &amp; Challenge</div>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Pilipinas Water Resources required a reliable system to continuously monitor water quality. Manual sampling created gaps in data visibility and made consistent compliance difficult to ensure. The solution needed to measure multiple parameters in real time and alert operators to any deviation immediately.
+          The feedmill facility was originally equipped with a proprietary automation system supplied by a European OEM, utilizing a software-based PLC platform built on Wonderware InControl with supervision through Wonderware ArchestrA IDE SCADA. Plant production was managed through a custom Feedmill Manager application developed in legacy Visual Basic.
+          Over time, the plant faced increasing operational risks due to dependence on proprietary technology, limited availability of qualified support engineers, high maintenance costs, and aging software infrastructure. The system also lacked flexibility for future expansion and modernization.
+          Watchdog Automation was tasked with performing a full reverse engineering and migration of the entire automation system while maintaining compatibility with existing field instruments, process equipment, and plant operation logic. The modernization had to be completed without disrupting production and while preserving all critical process sequences and interlocks.
         </p>
       </div>
 
@@ -260,8 +261,8 @@
       <div>
         <div class="section-label">Technical Details</div>
         <div class="rounded-xl border border-slate-200 overflow-hidden">
-          <div class="tech-row px-4"><div class="tech-key">Instruments</div><div class="tech-val">Turbidity analyzers, residual chlorine sensors, conductivity transmitters, pH probes</div></div>
-          <div class="tech-row px-4"><div class="tech-key">Parameters</div><div class="tech-val">Turbidity, residual chlorine, conductivity, pH, pressure, flow</div></div>
+          <div class="tech-row px-4"><div class="tech-key">Instruments</div><div class="tech-val">Motor control feedback signals, Level sensors and silo indicators, Temperature sensors, Flow sensors, Position switches and limit sensors, Alarm and safety interlock signals, MCC and drive status signals</div></div>
+          <div class="tech-row px-4"><div class="tech-key">Parameters</div><div class="tech-val">Raw material intake status, Silo levels and transfer lines, Grinding and milling operation, Ingredient dosing and batching, Mixer and conditioner status, Finished product storage</div></div>
           <div class="tech-row px-4"><div class="tech-key">Integration</div><div class="tech-val">All field instruments wired into a centralized control system</div></div>
           <div class="tech-row px-4"><div class="tech-key">Communication</div><div class="tech-val">4–20 mA analog signals</div></div>
           <div class="tech-row px-4"><div class="tech-key">Deliverable</div><div class="tech-val">Fully commissioned system with complete documentation</div></div>
