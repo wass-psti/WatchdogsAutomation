@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Watchdog Automation 
+      Watchdog Automation
     </title>
 
     <!-- Google tag (gtag.js) -->
@@ -1296,7 +1296,8 @@
       }
     </style>
 
-   <!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
+   <!-- ═══════════════════ FEATURED PROJECTS CARDS ═══════════════════ -->
+<!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
 <style>
   .proj-item {
     display: flex;
@@ -1304,49 +1305,51 @@
     align-items: center;
     gap: 2rem;
     padding: 4rem 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #1e293b;
     text-decoration: none;
     color: inherit;
-    transition: background 0.3s ease;
+    position: relative;
   }
 
   .proj-item:first-of-type {
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #1e293b;
   }
 
   @media (min-width: 768px) {
     .proj-item {
       flex-direction: row;
-      gap: 4rem;
+      gap: 5rem;
       padding: 5rem 0;
     }
-
     .proj-item.reverse {
-      flex-direction: row-reverse; 
-      justify-content: flex-end;
+      flex-direction: row-reverse;
     }
   }
 
   .proj-item-img-wrap {
-    flex: 0 0 42%;
+    flex: 0 0 44%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
   }
 
+  .proj-item.reverse .proj-item-img-wrap {
+    justify-content: flex-end;
+  }
+
   .proj-item-img {
     width: 100%;
-    max-height: 300px;
+    max-height: 320px;
     object-fit: contain;
     display: block;
-    transition: transform 0.5s ease, filter 0.5s ease;
-    filter: drop-shadow(0 20px 40px rgba(0, 154, 155, 0.15));
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+    filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.18));
   }
 
   .proj-item:hover .proj-item-img {
-    transform: translateY(-6px);
-    filter: drop-shadow(0 32px 56px rgba(0, 154, 155, 0.25));
+    transform: translateY(-8px);
+    filter: drop-shadow(0 36px 64px rgba(0, 154, 155, 0.22));
   }
 
   .proj-item-img-placeholder {
@@ -1355,83 +1358,126 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   .proj-item-body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0;
   }
 
   .proj-item-number {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 800;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #cbd5e1;
+    color: #009a9b;
+    margin-bottom: 1rem;
   }
 
   .proj-item-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.2;
     color: #0f172a;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.02em;
   }
 
   .proj-item-tag {
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #009a9b;
+    color: #94a3b8;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .proj-item-desc {
-    font-size: 1.0rem;
-    color: #64748b;
-    line-height: 1.75;
-    max-width: 48ch;
-    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #475569;
+    line-height: 1.8;
+    max-width: 46ch;
+    margin-bottom: 2rem;
   }
 
   .proj-view-btn {
-    margin-top: 1.25rem;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.72rem;
+    gap: 10px;
+    font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #009a9b;
-    border: 1.5px solid #009a9b;
-    padding: 8px 20px;
+    color: #0f172a;
+    padding: 10px 22px;
     width: fit-content;
-    transition: background 0.2s ease, color 0.2s ease, gap 0.2s ease;
+    border: 1.5px solid #0f172a;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, gap 0.3s ease;
+  }
+
+  .proj-view-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #009a9b;
+    transform: translateX(-101%);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
+  }
+
+  .proj-view-btn span,
+  .proj-view-btn svg {
+    position: relative;
+    z-index: 1;
   }
 
   .proj-item:hover .proj-view-btn {
-    background: #009a9b;
     color: #fff;
-    gap: 14px;
+    border-color: #009a9b;
+    gap: 16px;
+  }
+
+  .proj-item:hover .proj-view-btn::before {
+    transform: translateX(0);
+  }
+
+  /* Subtle left accent line on hover */
+  .proj-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 2px;
+    height: 60%;
+    background: #009a9b;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
+  }
+
+  .proj-item:hover::before {
+    transform: translateY(-50%) scaleY(1);
   }
 </style>
 
 <section id="projects" class="bg-white">
-  <div class="mx-auto max-w-6xl px-6 py-20">
+  <div class="mx-auto max-w-6xl px-6 py-12">
 
     <!-- Section Header -->
-    <div class="mb-4">
+    <div class="mb-0">
       <div class="text-xs font-bold uppercase tracking-widest text-[#009a9b] mb-3">// Featured Work</div>
-      <h3 class="text-3xl font-extrabold tracking-tight text-slate-900">Our Projects</h3>
-      <p class="mt-2 text-slate-500 text-sm max-w-lg">
+      <h3 class="text-3xl font-extrabold tracking-tight text-slate-900 mb-2">Our Projects</h3>
+      <p class="text-slate-500 text-sm max-w-lg">
         Real-world automation delivered across power, manufacturing, and industrial facilities.
       </p>
     </div>
-
-    <!-- Projects -->
 
     <!-- PROJECT 1 — image left -->
     <a href="./projects/project1.html" class="proj-item" style="text-decoration:none">
@@ -1443,12 +1489,12 @@
         </div>
       </div>
       <div class="proj-item-body">
-        <div class="proj-item-number">01</div>
+        <div class="proj-item-number">Project 01</div>
         <div class="proj-item-title">Pilipinas Water Resources, Inc.</div>
         <div class="proj-item-tag">Automating Water Source</div>
         <p class="proj-item-desc">Supply, engineering, installation, testing and commissioning of a complete Water Quality Analysis System for turbidity, residual chlorine, conductivity, pH, pressure and flow.</p>
         <div class="proj-view-btn">
-          View Project
+          <span>View Project</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
@@ -1464,12 +1510,12 @@
         </div>
       </div>
       <div class="proj-item-body">
-        <div class="proj-item-number">02</div>
+        <div class="proj-item-number">Project 02</div>
         <div class="proj-item-title">DEPAL PLC Upgrading from S7-300 to S7-1500</div>
         <div class="proj-item-tag">PLC Upgrading</div>
         <p class="proj-item-desc">Migrating PLC program, reconfiguring hardware, and ensuring proper system communication. Improved diagnostics and long-term reliability of the DEPAL automation system.</p>
         <div class="proj-view-btn">
-          View Project
+          <span>View Project</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
@@ -1485,12 +1531,12 @@
         </div>
       </div>
       <div class="proj-item-body">
-        <div class="proj-item-number">03</div>
+        <div class="proj-item-number">Project 03</div>
         <div class="proj-item-title">S7-300 → S7-1500 Migration at Ginebra San Miguel Mandaue Plant</div>
         <div class="proj-item-tag">PLC Migration</div>
         <p class="proj-item-desc">Converting existing PLC programs, updating hardware configuration, and ensuring compatibility with field devices and the plant's control network.</p>
         <div class="proj-view-btn">
-          View Project
+          <span>View Project</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
@@ -1506,12 +1552,12 @@
         </div>
       </div>
       <div class="proj-item-body">
-        <div class="proj-item-number">04</div>
+        <div class="proj-item-number">Project 04</div>
         <div class="proj-item-title">Chiller and Pump Integration to Building Management System</div>
         <div class="proj-item-tag">BMS Integration</div>
         <p class="proj-item-desc">Integration of chillers, pumps, and cooling tower controls into existing BMS using PLC interface and industrial communication protocols.</p>
         <div class="proj-view-btn">
-          View Project
+          <span>View Project</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
@@ -1527,12 +1573,12 @@
         </div>
       </div>
       <div class="proj-item-body">
-        <div class="proj-item-number">05</div>
+        <div class="proj-item-number">Project 05</div>
         <div class="proj-item-title">Control Panel Retrofit with New PLC System</div>
         <div class="proj-item-tag">Control System Upgrade</div>
         <p class="proj-item-desc">Replacement of obsolete control panel with modern PLC-based system including new wiring, I/O modules, power supply, and HMI interface.</p>
         <div class="proj-view-btn">
-          View Project
+          <span>View Project</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
@@ -1548,12 +1594,12 @@
         </div>
       </div>
       <div class="proj-item-body">
-        <div class="proj-item-number">06</div>
+        <div class="proj-item-number">Project 06</div>
         <div class="proj-item-title">PLC and SCADA Integration for Plant Monitoring</div>
         <div class="proj-item-tag">SCADA / PLC Integration</div>
         <p class="proj-item-desc">Integrated multiple PLC systems into SCADA network for centralized monitoring and control. Configured communication, alarms, trends, and operator interface screens.</p>
         <div class="proj-view-btn">
-          View Project
+          <span>View Project</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
